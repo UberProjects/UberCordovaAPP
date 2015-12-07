@@ -1,0 +1,14 @@
+{
+  "name": "UberCordova",
+  "version": "0.0.1",
+  "description": "Front end for our applicaiton",
+  "dependencies": {
+    "angular-resource": "1.4.7",
+    "angular-mocks": "1.4.7",
+    "angular-cookies": "1.4.7",
+    "angular-touch": "1.4.7",
+    "angular-bootstrap": "0.14.3",
+    "angular-ui-utils": "3.0.0",
+    "angular-ui-router": "0.2.15"
+  }
+}

@@ -1,0 +1,9 @@
+<ion-list>
+  <ion-item ng-repeat="friend in friends">
+    <h2>{{ (friend.Name) ? friend.Name : friend.phoneNumber}}</h2>
+    <ion-delete-button
+      class="ion-minus-circled"
+      ng-click="friendsList.splice($index, 1)">
+    </ion-delete-button>
+  </ion-item>
+</ion-list>
