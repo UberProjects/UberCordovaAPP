@@ -6,7 +6,8 @@
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="modules/users/css/users.css" rel="stylesheet">
+    <link href="modules/uber_core/css/uber.client.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -14,21 +15,58 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+
+    <!-- your app's js -->
+    <script src="config.js"></script>
+    <script src="application.js"></script>
+
+    <!-- angular modules -->
+
+    <script src="modules/uber_core/uber.client.module.js"></script>
+    <script src="modules/uber_core/config/uber.routes.js"></script>
+    <script src="modules/uber_core/controllers/current_ride.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/new_ride.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/ride_history.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/ride_request.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/uber.controller.js"></script>
+    <script src="modules/uber_core/controllers/completed_ride.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/saved_ride.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/ride_home.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/profile.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/pending_ride.controller.client.js"></script>
+    <script src="modules/uber_core/directives/select_list.directive.client.js"></script>
+    <script src="modules/uber_core/directives/friend_view.directive.client.js"></script>
+    <script src="modules/uber_core/directives/map.directive.client.js"></script>
+    <script src="modules/uber_core/directives/home_map.directive.client.js"></script>
+    <script src="modules/uber_core/services/friend.service.client.js"></script>
+    <script src="modules/uber_core/services/maps.service.client.js"></script>
+    <script src="modules/uber_core/services/ride_request.client.js"></script>
+    <script src="modules/uber_core/services/uber.service.client.js"></script>
+    <script src="modules/uber_core/services/saved_ride.service.client.js"></script>
+    <script src="modules/uber_core/services/finished_ride.service.client.js"></script>
+    <script src="modules/uber_core/services/ride_state.service.client.js"></script>
+
+    <script src="modules/users/users.client.module.js"></script>
+    <script src="modules/users/config/users.client.config.js"></script>
+    <script src="modules/users/config/users.client.routes.js"></script>
+    <script src="modules/users/controllers/authentication.client.controller.js"></script>
+    <script src="modules/users/controllers/password.client.controller.js"></script>
+    <script src="modules/users/controllers/settings.client.controller.js"></script>
+    <script src="modules/users/services/authentication.client.service.js"></script>
+    <script src="modules/users/services/users.client.sertice.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
   </head>
-  <body ng-app="starter" class="platform-ios platform-cordova platform-webview">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
+  <body ng-app="UberWithFriends" class="platform-ios platform-cordova platform-webview">
+    <ion-nav-bar>
+      <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
   </body>
+
 </html>

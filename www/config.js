@@ -12,6 +12,7 @@ var ApplicationConfiguration = (function(){
   var applicationModuleVendorDependencies = [
     'ui.router',
     'ngResource',
+    'ngCordova',
     'ionic'
   ];
 

@@ -86,8 +86,8 @@ function minErr(module, ErrorConstructor) {
 
   lowercase: true,
   uppercase: true,
-  manualLowercase: true,
-  manualUppercase: true,
+ manualLowercase: true,
+ manualUppercase: true,
   nodeName_: true,
   isArrayLike: true,
   forEach: true,

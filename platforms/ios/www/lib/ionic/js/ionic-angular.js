@@ -11532,7 +11532,7 @@ IonicModule
  * histories. For example, each tab can have it's own navigation history stack.
  *
  * Ionic uses the AngularUI Router module so app interfaces can be organized
- * into various "states". Like Angular's core $route service, URLs can be used
+ * into various "states". Like Angular's friends $route service, URLs can be used
  * to control the views. However, the AngularUI Router provides a more powerful
  * state manager in that states are bound to named, nested, and parallel views,
  * allowing more than one template to be rendered on the same page.

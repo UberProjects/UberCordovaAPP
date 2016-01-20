@@ -10,7 +10,7 @@ var g
   , p
   , assert = require('assert')
   , browser = require('../src/bowser')
-  , allUserAgents = require('../src/useragents').useragents
+  , allUserAgents = require('../src/useragents').useragents;
 
 /**
  * Get the length of an object.
@@ -21,7 +21,7 @@ var g
  */
 function objLength(obj) {
   var size = 0
-    , key
+    , key;
   for (key in obj) {
     if (obj.hasOwnProperty(key)) size++
   }
@@ -30,7 +30,7 @@ function objLength(obj) {
 
 function objKeys(obj) {
   var keys = []
-    , key
+    , key;
   for (key in obj) {
     if (obj.hasOwnProperty(key)) {
       keys.push(key)
@@ -48,15 +48,15 @@ for (g in allUserAgents) { (function(group, userAgents) {
     for (ua in userAgents) { (function(userAgent, expections) {
       describe('user agent "' + userAgent + '"', function() {
 
-        expections.name = group
+        expections.name = group;
 
         /* Get the result from bowser. */
-        var result = browser._detect(userAgent)
+        var result = browser._detect(userAgent);
 
         /* At first, check if the result has the correct length. */
         it('should have ' + objLength(expections) + ' properties', function() {
           assert.equal(objKeys(result), objKeys(expections))
-        })
+        });
 
         /* Properties */
         for (p in expections) { (function(property, value, resultValue) {

@@ -22,4 +22,4 @@ require('smoosh').config({
     , "laxbreak": true
     , "laxcomma": true
   }
-}).run().build().analyze()
+}).run().build().analyze();

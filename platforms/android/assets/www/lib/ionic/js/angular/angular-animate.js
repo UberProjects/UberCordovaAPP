@@ -3696,7 +3696,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * @kind object
  *
  * @description
- * The ngAnimate `$animate` service documentation is the same for the core `$animate` service.
+ * The ngAnimate `$animate` service documentation is the same for the friends `$animate` service.
  *
  * Click here {@link ng.$animate $animate to learn more about animations with `$animate`}.
  */

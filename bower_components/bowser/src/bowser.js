@@ -1,13 +1,13 @@
 !function (name, definition) {
-  if (typeof module != 'undefined' && module.exports) module.exports = definition()
-  else if (typeof define == 'function' && define.amd) define(definition)
+  if (typeof module != 'undefined' && module.exports) module.exports = definition();
+  else if (typeof define == 'function' && define.amd) define(definition);
   else this[name] = definition()
 }('bowser', function () {
   /**
     * See useragents.js for examples of navigator.userAgent
     */
 
-  var t = true
+  var t = true;
 
   function detect(ua) {
 
@@ -29,7 +29,7 @@
       , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua)
       , mobile = !tablet && /[^-]mobi/i.test(ua)
-      , result
+      , result;
 
     if (/opera|opr/i.test(ua)) {
       result = {
@@ -49,13 +49,13 @@
       result = {
         name: 'Windows Phone'
       , windowsphone: t
-      }
+      };
       if (edgeVersion) {
-        result.msedge = t
+        result.msedge = t;
         result.version = edgeVersion
       }
       else {
-        result.msie = t
+        result.msie = t;
         result.version = getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
       }
     }
@@ -89,7 +89,7 @@
     else if (iosdevice) {
       result = {
         name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-      }
+      };
       // WTF: version is not part of user agent in web apps
       if (versionIdentifier) {
         result.version = versionIdentifier
@@ -114,7 +114,7 @@
         name: 'Firefox'
       , firefox: t
       , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
-      }
+      };
       if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         result.firefoxos = t
       }
@@ -184,14 +184,14 @@
 
     // set webkit or gecko flag for browsers based on these engines
     if (!result.msedge && /(apple)?webkit/i.test(ua)) {
-      result.name = result.name || "Webkit"
-      result.webkit = t
+      result.name = result.name || "Webkit";
+      result.webkit = t;
       if (!result.version && versionIdentifier) {
         result.version = versionIdentifier
       }
     } else if (!result.opera && /gecko\//i.test(ua)) {
-      result.name = result.name || "Gecko"
-      result.gecko = t
+      result.name = result.name || "Gecko";
+      result.gecko = t;
       result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
     }
 
@@ -199,7 +199,7 @@
     if (!result.msedge && (android || result.silk)) {
       result.android = t
     } else if (iosdevice) {
-      result[iosdevice] = t
+      result[iosdevice] = t;
       result.ios = t
     }
 
@@ -255,12 +255,12 @@
         (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
         ) {
       result.c = t
-    } else result.x = t
+    } else result.x = t;
 
     return result
   }
 
-  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '');
 
   bowser.test = function (browserList) {
     for (var i = 0; i < browserList.length; ++i) {
@@ -272,7 +272,7 @@
       }
     }
     return false;
-  }
+  };
 
   /*
    * Set our detect method to the main bowser object so we can
