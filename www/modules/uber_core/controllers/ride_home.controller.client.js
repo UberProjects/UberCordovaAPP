@@ -18,5 +18,19 @@ angular.module('uber_core').controller('RideHomeController', [
         RideState.updateState('saved');
         $state.go('tabs.saved_ride')
       };
+
+      $scope.mapCb = function(err, map, position){
+
+        var marker = new google.maps.Marker({
+          position: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+          map: map,
+          title: 'You are Here'
+        });
+
+        marker.setMap(map);
+      };
    }
 ]);
