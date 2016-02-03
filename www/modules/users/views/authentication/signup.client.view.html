@@ -1,23 +1,40 @@
 <section data-ng-controller="AuthenticationController">
-  <ion-view title="Sign Up">
-    <ion-content>
-      <label class="item item-input">
-        <span class="input-label">UserName</span>
-        <input type="text">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Email</span>
-        <input type="email">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Phone Number</span>
-        <input type="tel">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Password</span>
-        <input type="password">
-      </label>
-      <button class="button button-positive" ng-click="finishSignup()">Finish</button>
-    </ion-content>
-  </ion-view>
+    <ion-view title="Sign Up">
+        <ion-content>
+            <form name="userForm" data-ng-submit="finishSignup()">
+                <fieldset>
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">User Name</span>
+                        <input type="text" id="userName" name="userName" class="form-control" data-ng-model="credentials.username" placeholder="User Name">
+                    </label>
+                    <div class="item item-input">
+                        <label class="input-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+                    </div>
+                    <label class="item item-input">
+                        <span class="input-label">Phone Number</span>
+                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Phone Number">
+                    </label>
+                    <div class="text-center form-group">
+                        <button type="submit" class="button button-positive">Sign up</button>
+                    </div>
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </fieldset>
+            </form>
+        </ion-content>
+    </ion-view>
 </section>

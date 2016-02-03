@@ -1,17 +1,26 @@
 <section ng-controller="AuthenticationController">
-  <ion-view title="Sign in">
-    <ion-content>
-      <label class="item item-input">
-        <span class="input-label">UserName</span>
-        <input type="text">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Password</span>
-        <input type="password">
-      </label>
+    <ion-view title="Sign in">
+        <ion-content>
+            <form data-ng-submit="signin()">
+                <fieldset>
+                    <label class="item item-input">
+                        <span class="input-label">UserName</span>
+                        <input type="text" id="username" name="username" class="form-control" data-ng-model="credentials.username" placeholder="Username">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Password</span>
+                        <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
+                    </label>
 
-      <button class="button">Sign In</button>
-      <button class="button button-positive" ng-click="signup()">Sign Up</button>
-    </ion-content>
-  </ion-view>
+                    <button type="submit" class="button">Sign In</button>
+                    <button class="button button-positive" ng-click="signup()">Sign Up</button>
+
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+
+                </fieldset>
+            </form>
+        </ion-content>
+    </ion-view>
 </section>

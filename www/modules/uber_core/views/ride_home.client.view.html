@@ -1,10 +1,17 @@
 <ion-view view-title="Ride">
- <ion-content class="padding">
+  <ion-content>
 
-    <map callback="mapCb" zoomlevel="15"></map>
+    <div class="row row-top">
+      <map callback="mapCb" zoomlevel="15"></map>
+    </div>
+    <div class="row row-bottom">
+      <div class="col">
+        <button class="button" ng-click="startNewRide()">New Ride</button>
+      </div>
+      <div class="col">
+        <button class="button button-positive" ng-click="startSavedRide()">Saved Ride</button>
+      </div>
+    </div>
 
-    <button class="button" ng-click="startNewRide()">New Ride</button>
-    <button class="button button-positive" ng-click="startSavedRide()">Saved Ride</button>
-
- </ion-content>
+  </ion-content>
 </ion-view>

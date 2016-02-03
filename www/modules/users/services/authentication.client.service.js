@@ -6,6 +6,8 @@
 
 angular.module('users').factory('Authentication',[
   function(){
+
+
     var _this = this;
 
     _this._data = {
