@@ -13,7 +13,8 @@ var ApplicationConfiguration = (function(){
     'ui.router',
     'ngResource',
     'ngCordova',
-    'ionic'
+    'ionic',
+    'ngCordovaOauth'
   ];
 
   var registerModule = function(moduleName, dependencies) {

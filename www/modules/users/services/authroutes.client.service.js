@@ -3,20 +3,18 @@
  * Created by Matthias on 2/3/16.
  */
 
-angular.module('users').factory('AuthRoutes',['$http', function($http){
+angular.module('users').factory('AuthRoutes',['$http','SERVER', function($http, SERVER){
   return {
     signup: function(userInfo){
-      return $http.post('/v1/auth/signup', userInfo).then(function(result){
-        return result.data;
-      })
+      return $http.post(SERVER + '/auth/signup', userInfo)
     },
     signin: function(userLoginInfo){
-      return $http.post('/v1/auth/signin', userLoginInfo).then(function(result){
+      return $http.post(SERVER + '/auth/signin', userLoginInfo).then(function(result){
         return result.data;
       })
     },
     singout: function(){
-      return $http.get('/v1/auth/signout').then(function(result){
+      return $http.get(SERVER + '/auth/signout').then(function(result){
         return result.data;
       })
     }

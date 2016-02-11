@@ -7,11 +7,17 @@ angular.module('uber_core').controller('ProfileController',[
   '$scope',
   'AuthRoutes',
   '$state',
-  function($scope, AuthRoutes, $state){
+  'Authentication',
+  '$ionicHistory',
+  function($scope, AuthRoutes, $state, Authentication, $ionicHistory){
       $scope.signout = function(){
           console.log('running');
            AuthRoutes.singout().then(function(res){
-              console.log(res);
+              Authentication.user = null;
+              $ionicHistory.nextViewOptions({
+                disableBack: true,
+                historyRoot: false
+              });
               $state.go('signin');
           });
       };
