@@ -14,7 +14,8 @@ var ApplicationConfiguration = (function(){
     'ngResource',
     'ngCordova',
     'ionic',
-    'ngCordovaOauth'
+    'ngCordovaOauth',
+    'btford.socket-io'
   ];
 
   var registerModule = function(moduleName, dependencies) {

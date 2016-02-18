@@ -34,12 +34,14 @@ angular.module('users').controller('AuthenticationController', [
 
             $cordovaOauth.uber('F23Rp_lYXaXkZr_XLFbghHRlNh92ILKk', ['profile']).then(function (result) {
                 $scope.credentials.uber_access = result;
-                AuthRoutes.signup($scope.credentials).success(function (res) {
-                    //TODO just save the user and redirect to tabs sigin for testing in ios
-                    $state.go('signin');
-                }).error(function(err){
-                    $scope.err = 'Error' + JSON.stringify(err);
+                AuthRoutes.signup($scope.credentials).then(function (res) {
+                    window.localStorage['user'] = response;
+                    $state.go('tabs');
+                },function(err){
+                    $scope.error = 'Error: ' + JSON.stringify(err);
                 });
+            }, function(err){
+                $scope.error = 'Error: ' + JSON.stringify(err);
             });
 
         };

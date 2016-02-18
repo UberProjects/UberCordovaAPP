@@ -1,7 +1,12 @@
 <ion-view view-title="New Ride">
   <ion-content class="padding">
-
-     <button class="button" ng-click="addNumber()">Add Number</button>
+      <ion-list>
+          <ion-item ng-repeat="f in data.friends">
+            <h2>{{f.name || f.id}}</h2>
+            <p>{{f.status}}</p>
+          </ion-item>
+      </ion-list>
+     <button class="button" ng-click="addNumber()">Friend</button>
      <button class="button" ng-click="">Add From Contacts</button>
 
       <select-list friends="friends"></select-list>

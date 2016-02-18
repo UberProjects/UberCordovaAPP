@@ -6,6 +6,8 @@
     "bowser": "browser#~1.0.0"
   },
   "dependencies": {
-    "ng-cordova-oauth": "~0.2.3"
+    "ng-cordova-oauth": "~0.2.3",
+    "angular-socket-io": "~0.7.0",
+    "socket.io": "~1.4.5"
   }
 }

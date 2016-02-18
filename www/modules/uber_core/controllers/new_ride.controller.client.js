@@ -8,40 +8,28 @@ angular.module('uber_core').controller('NewRideController', [
   'Authentication',
   '$ionicPopup',
   '$state',
-  function($scope, Authentication, $ionicPopup, $state ){
+  'Notifications',
+  'FriendsContact',
+  function($scope, Authentication, $ionicPopup, $state, Notifications, FriendsContact){
     //Needs to matain current ride status and adjust child views accordingly
-    $scope.friends = [];
     $scope.data = {
       number:'',
-      showDelete: false
+      showDelete: false,
+      friendsList: [],
+      products:[]
     };
 
-    //TODO find better place to put this
-    $scope.addNumber = function(){
-      var pop = $ionicPopup.show({
-        template: '<input type="tel" ng-model="data.number">',
-        title:'Enter Number',
-        scope: $scope,
-        buttons:[
-          {text: 'Cancel'},
-          {
-            text: 'Add',
-            type:'button-positive',
-            onTap: function(e){
-              if(validNumber($scope.data.number)){
-                $scope.friends.push({
-                  phoneNumber: $scope.data.number
-                });
-                $scope.data.number = '';
-                pop.close();
-              }else{
-                e.preventDefault();
-              }
-            }
-          }
-        ]
-      });
-    };
+    Notifications.newConnectionInfo.then(function(id){
+        console.log(id);
+    });
+
+    var contactHelper = new FriendsContact($scope);
+
+    $scope.addNumber = contactHelper.contactInput;
+
+    contactHelper.addFriendsListener(function(friendsList){
+        $scope.data.friends = friendsList;
+    });
 
     $scope.addFromContactsList = function(){
       //This will probally need a service or factory
