@@ -10,6 +10,7 @@ angular.module('uber_core').controller('ProfileController',[
   'Authentication',
   '$ionicHistory',
   function($scope, AuthRoutes, $state, Authentication, $ionicHistory){
+      //TODO move all signout logic to one place and should wipe all app data
       $scope.signout = function(){
           console.log('running');
            AuthRoutes.singout().then(function(res){

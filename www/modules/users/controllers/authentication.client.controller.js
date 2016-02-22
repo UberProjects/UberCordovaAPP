@@ -51,7 +51,6 @@ angular.module('users').controller('AuthenticationController', [
         $scope.signin = function () {
             $http.post(SERVER + '/auth/signin', $scope.credentials).success(function (response) {
                 window.localStorage['user'] = response;
-
                 $scope.authentication.user = response;
 
                 $state.go('tabs');
