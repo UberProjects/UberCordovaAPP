@@ -60,8 +60,12 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
     }).
     state('tabs.completed_ride',{
       url:'/completed_ride',
-      templateUrl: dirRoot + 'completed_ride.client.view.html',
-      controller:'CompletedRideController'
+      views: {
+          'ride-tab': {
+              templateUrl: dirRoot + 'completed_ride.client.view.html',
+              controller:'CompletedRideController'
+          }
+      }
     }).
     state('tabs.ride_history',{
       url:'/ride_history',

@@ -41,6 +41,11 @@ angular.module('uber_core').controller('NewRideController', [
       $state.go('tabs.pending_ride')
     };
 
+    $scope.completedRide = function() {
+        console.log('GOING TO COMPLETED');
+        $state.go('tabs.completed_ride');
+    };
+
     //TODO make this better
     function validNumber(num){
       return num.length > 0
