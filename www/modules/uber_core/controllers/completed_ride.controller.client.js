@@ -10,12 +10,12 @@ angular.module('uber_core').controller('CompletedRideController', [
 
       $scope.launchPaypal = function() {
           console.log('Launching Paypal In-App Browser');
-          window.cordova.InAppBrowser.open('https://m.paypal.com/login', '_blank', 'location=no');
+          window.cordova.InAppBrowser.open('https://www.paypal.com/signin/', '_blank', 'location=no');
       };
 
       $scope.launchVenmo = function() {
           console.log('Launching Venmo In-App Browser');
-          window.cordova.InAppBrowser.open('https://m.venmo.com/login', '_blank', 'location=no');
+          window.cordova.InAppBrowser.open('https://m.venmo.com/account/sign-in/', '_blank', 'location=no');
       };
 
   }
