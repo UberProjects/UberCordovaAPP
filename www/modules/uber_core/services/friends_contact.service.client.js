@@ -80,6 +80,14 @@ angular.module('uber_core').factory('FriendsContact', [
             //        }
             //}
 
+            this.removeFromRide = function(friend){
+                var index = friendsList.indexOf(friend);
+                if (index > -1) {
+                    friendsList.splice(index, 1);
+                }
+                update();
+            }
+
             this.addToRide = function(friend){
                 console.log("adding" + friend.name + " to ride");
                 friendsList.push(friend);

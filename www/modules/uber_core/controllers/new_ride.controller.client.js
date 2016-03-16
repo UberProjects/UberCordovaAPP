@@ -26,6 +26,7 @@ angular.module('uber_core').controller('NewRideController', [
 
     $scope.addToRide = contactHelper.addToRide;
     $scope.searchForFriend = contactHelper.searchForFriend;
+    $scope.removeFromRide = contactHelper.removeFromRide;
 
 
     contactHelper.addFriendsListener(function(friendsList){
