@@ -11,7 +11,6 @@ angular.module('uber_core').controller('NewRideController', [
   'Notifications',
   'FriendsContact',
   function($scope, Authentication, $ionicPopup, $state, Notifications, FriendsContact){
-    //Needs to matain current ride status and adjust child views accordingly
     $scope.data = {
       number:'',
       showDelete: false,
@@ -25,33 +24,17 @@ angular.module('uber_core').controller('NewRideController', [
 
     var contactHelper = new FriendsContact($scope);
 
-    $scope.addNumber = contactHelper.contactInput;
+    $scope.addToRide = contactHelper.addToRide;
+    $scope.searchForFriend = contactHelper.searchForFriend;
+
 
     contactHelper.addFriendsListener(function(friendsList){
         $scope.data.friends = friendsList;
     });
 
-    $scope.addFromContactsList = function(){
-        navigator.contacts.find(
-            [navigator.contacts.fieldType.displayName],
-            gotContacts,
-            errorHandler);
-
-        function errorHandler(e) {
-            console.log("errorHandler: "+e);
-        }
-
-        function gotContacts(c) {
-            console.log("gotContacts, number of results "+c.length);
-            picDiv = document.querySelector("#pictures");
-            for(var i=0, len=c.length; i<len; i++) {
-                console.dir(c[i]);
-                if(c[i].photos && c[i].photos.length > 0) {
-                    picDiv.innerHTML += "<img src='"+c[i].photos[0].value+"'>";
-                }
-            }
-        }
-    };
+    contactHelper.searchListener(function(searchList){
+      $scope.data.searchList = searchList;
+    });
 
     $scope.continue = function(){
       //TODO add logic for calling server and creating new ride

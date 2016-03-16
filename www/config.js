@@ -15,7 +15,8 @@ var ApplicationConfiguration = (function(){
     'ngCordova',
     'ionic',
     'ngCordovaOauth',
-    'btford.socket-io'
+    'btford.socket-io',
+    //'jett.ionic.filter.bar'
   ];
 
   var registerModule = function(moduleName, dependencies) {

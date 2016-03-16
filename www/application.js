@@ -9,7 +9,8 @@ var app = angular.module(
   ApplicationConfiguration.applicationModuleVendorDependencies
 );
 
-app.constant('SERVER','http://localhost:3000/v1');
+//app.constant('SERVER','http://localhost:3000/v1');
+app.constant('SERVER','http://localhost:8100/v1');
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
