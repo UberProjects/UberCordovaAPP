@@ -2,27 +2,28 @@
     <ion-view title="Sign Up">
         <ion-content>
             <form name="userForm" data-ng-submit="finishSignup()">
-                    <label class="item item-input">
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">First Name</span>
                         <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Last Name</span>
                         <input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="credentials.lastName" placeholder="Last Name">
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Email</span>
                         <input type="email" id="email" name="email" class="form-control" data-ng-model="credentials.email" placeholder="Email">
                     </label>
-                    <label class="item item-input">
-                        <span class="input-label">User Name</span>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Username</span>
                         <input type="text" id="userName" name="userName" class="form-control" data-ng-model="credentials.username" placeholder="User Name">
                     </label>
-                    <div class="item item-input">
-                        <label class="input-label">Password</label>
+                  <!--  <div class="item item-input item-floating-label">-->
+                    <label class = "item item-input item-floating-label">
+                        <span class="input-label">Password</span>
                         <input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
-                    </div>
-                    <label class="item item-input">
+                    </label>
+                    <label class="item item-input item-floating-label">
                         <span class="input-label">Phone Number</span>
                         <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Phone Number">
                     </label>
