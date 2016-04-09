@@ -32,6 +32,8 @@ platforms/
 
 plugins/
 
+www/lib/
+
 resources/
 
 scss/
@@ -39,3 +41,5 @@ scss/
 hooks/
 
 .idea/
+
+.io-config.json

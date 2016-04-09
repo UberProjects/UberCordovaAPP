@@ -9,12 +9,21 @@ var app = angular.module(
   ApplicationConfiguration.applicationModuleVendorDependencies
 );
 
-app.constant('SERVER','http://localhost:3000/v1');
+app.constant('SERVER','http://localhost:81000/v1');
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
     window.location.hash = '#/signin';
+
+    var push = new Ionic.Push({
+        "debug":true
+    });
+
+    push.register(function(token) {
+        // Log out your device token (Save this!)
+        console.log("Got Token:",token.token);
+    });
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

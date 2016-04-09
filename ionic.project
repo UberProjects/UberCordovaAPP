@@ -1,8 +1,10 @@
 {
   "name": "UberWithFriends",
-  "app_id": "",
-  "proxies":[{
-    "path":"/v1",
-    "proxyUrl":"http://localhost:3000/v1"
-  }]
+  "app_id": "70846e19",
+  "proxies": [
+    {
+      "path": "/v1",
+      "proxyUrl": "http://localhost:3000/v1"
+    }
+  ]
 }

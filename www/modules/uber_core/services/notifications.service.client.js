@@ -12,6 +12,7 @@ angular.module('uber_core').factory('Notifications',[
     '$q',
     function(socketFactory, $window, $cordovaGeolocation, SERVER, $q){
 
+        //TODO add server without v1 postfix
         var myIoSocket = $window.io('http://localhost:3000');
 
         var socket = socketFactory({
