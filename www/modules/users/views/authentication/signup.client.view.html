@@ -1,6 +1,6 @@
 <section data-ng-controller="AuthenticationController">
     <ion-view title="Sign Up">
-        <ion-content>
+        <ion-content padding="true">
             <form name="userForm" data-ng-submit="finishSignup()">
                     <label class="item item-input item-floating-label">
                         <span class="input-label">First Name</span>
@@ -28,7 +28,7 @@
                         <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Phone Number">
                     </label>
                     <div class="text-center">
-                        <button type="submit" class="button button-positive">Link Uber</button>
+                        <button type="submit" class="button button-full p button-positive">Link Uber</button>
                     </div>
                     <div data-ng-show="error" class="text-center text-danger">
                         <strong data-ng-bind="error"></strong>
