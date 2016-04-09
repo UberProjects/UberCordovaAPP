@@ -7,11 +7,14 @@
 angular.module('users').factory('Authentication',[
   function(){
 
-
     var _this = this;
+    var user_data = null;
+    if (window.localStorage['user']) {
+        user_data = JSON.parse(window.localStorage['user']);
+    }
 
     _this._data = {
-      user: window.localStorage['user']
+      user: user_data
     };
 
     return _this._data;

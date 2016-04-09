@@ -15,6 +15,7 @@ angular.module('uber_core').controller('ProfileController',[
           console.log('running');
            AuthRoutes.singout().then(function(res){
               Authentication.user = null;
+              localStorage['user'] = null;
               $ionicHistory.nextViewOptions({
                 disableBack: true,
                 historyRoot: false
