@@ -34,6 +34,10 @@ angular.module('users').controller('AuthenticationController', [
 
             $cordovaOauth.uber('F23Rp_lYXaXkZr_XLFbghHRlNh92ILKk', ['profile']).then(function (result) {
                 $scope.credentials.uber_access = result;
+
+                window.push_token_promise.then(function(token){
+                    $scope.credentials.push_token = token;
+                });
                 AuthRoutes.signup($scope.credentials).then(function (res) {
                     window.localStorage['user'] = response;
                     $state.go('tabs');
@@ -49,13 +53,23 @@ angular.module('users').controller('AuthenticationController', [
 
         //TODO determine if extra steps needed to store on device
         $scope.signin = function () {
-            $http.post(SERVER + '/auth/signin', $scope.credentials).success(function (response) {
+
+            $http.post(SERVER + '/auth/signin', $scope.credentials).then(function (response) {
                 window.localStorage['user'] = response;
                 $scope.authentication.user = response;
 
+                window.push_token_promise.then(function(token){
+                    $http.put(SERVER + '/users/update_push_token', {push_token:token}).then(function(response){
+                        console.log(response);
+                    }, function(err){
+                        console.log(err);
+                    });
+                    //Must always update when running on dev devices
+                });
+
                 $state.go('tabs');
                 //redirect to main application view
-            }).error(function (res) {
+            },function (res) {
                 $scope.error = res.message;
             });
         };

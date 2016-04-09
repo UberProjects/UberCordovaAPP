@@ -9,21 +9,30 @@ var app = angular.module(
   ApplicationConfiguration.applicationModuleVendorDependencies
 );
 
-app.constant('SERVER','http://localhost:81000/v1');
+app.constant('SERVER','http://localhost:8100/v1');
 
-app.run(function($ionicPlatform) {
+app.run(function($ionicPlatform, $q) {
   $ionicPlatform.ready(function() {
 
     window.location.hash = '#/signin';
 
+    window.push_data_cb = [];
+        //Horrible horrible hack
     var push = new Ionic.Push({
-        "debug":true
+        "debug":true,
+        "onNotification": function(data){
+            for( var i in window.push_data_cb ){
+                window.push_data_cb[i](data);
+            }
+        }
     });
 
+    var tokenDef = $q.defer();
     push.register(function(token) {
-        // Log out your device token (Save this!)
-        console.log("Got Token:",token.token);
+       tokenDef.resolve(token);
     });
+
+    window.push_token_promise = tokenDef.promise;
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

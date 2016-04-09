@@ -9,7 +9,10 @@ angular.module('uber_core').controller('UberController', [
   '$ionicHistory',
   '$state',
   'RideState',
-  function($scope, Authentication, $ionicHistory, $state, RideState){
+  'AcceptRide',
+  function($scope, Authentication, $ionicHistory, $state, RideState, AcceptRide){
+
+    AcceptRide.listenForRequest();
 
     $scope.rideState = 'home';
 

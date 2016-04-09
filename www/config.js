@@ -14,6 +14,7 @@ var ApplicationConfiguration = (function(){
     'ngResource',
     'ngCordova',
     'ionic',
+    'ionic.service.push',
     'ngCordovaOauth',
     'btford.socket-io'
   ];
