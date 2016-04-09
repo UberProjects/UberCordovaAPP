@@ -22,5 +22,8 @@ angular.module('uber_core').controller('ProfileController',[
               $state.go('signin');
           });
       };
+      $scope.aboutus = function(){
+        $state.go('aboutus')
+      }
   }
 ]);
