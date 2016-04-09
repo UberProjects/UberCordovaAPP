@@ -34,8 +34,6 @@ plugins/
 
 www/lib/
 
-resources/
-
 scss/
 
 hooks/
