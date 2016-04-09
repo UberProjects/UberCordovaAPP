@@ -60,5 +60,9 @@ angular.module('users').controller('AuthenticationController', [
             });
         };
 
+        $scope.forgot = function(){
+            $state.go('forgot');
+        }
+
     }
 ]);
