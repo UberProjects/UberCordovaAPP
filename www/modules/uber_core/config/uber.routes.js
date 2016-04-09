@@ -84,6 +84,11 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
           controller:'ProfileController'
         }
       }
+    }).
+    state('aboutus',{
+      url:'/aboutus',
+      templateUrl: dirRoot + 'aboutus.html',
+      controller: 'ProfileController'
     })
   }
 ]);
