@@ -13,7 +13,7 @@ angular.module('users').factory('AuthRoutes',['$http','SERVER', function($http, 
         return result.data;
       })
     },
-    singout: function(){
+    signout: function(){
       return $http.get(SERVER + '/auth/signout').then(function(result){
         return result.data;
       })
