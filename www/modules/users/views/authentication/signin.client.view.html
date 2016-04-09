@@ -1,6 +1,6 @@
 <section ng-controller="AuthenticationController">
-    <ion-view title="Sign in">
-        <ion-content>
+    <ion-view title="Ride With Friends">
+        <ion-content padding="true">
             <!-- TODO don't submit form on state change -->
             <label class="item item-input item-floating-label">
                 <span class="input-label">Username</span>
@@ -14,8 +14,8 @@
             </label>
 
             <div class="text-center">
-            <button ng-click="signin()" class="button button-positive">Sign In</button>
-            <button class="button button-positive" ng-click="signup()">Sign Up</button>
+            <button ng-click="signin()" class="button p button-full button-positive">Sign In</button>
+           <a class="no_ul" href="#" ng-click="signup()">No Account?</a>
         </div>
             <div data-ng-show="error" class="text-center text-danger">
                 <strong data-ng-bind="error"></strong>
