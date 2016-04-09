@@ -35,7 +35,7 @@ angular.module('uber_core').controller('ProfileController',[
       }
 
       $scope.userinfo = function(){
-        $("div.userinfocontainer").html(<p>$scope.authentication.user</p>);
+        $("div.userinfocontainer").html("<p>$scope.authentication.user</p>");
       }
   }
 ]);
