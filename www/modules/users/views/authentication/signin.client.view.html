@@ -2,20 +2,21 @@
     <ion-view title="Sign in">
         <ion-content>
             <!-- TODO don't submit form on state change -->
-            <label class="item item-input">
-                <span class="input-label">UserName</span>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Username</span>
                 <input type="text" id="username" name="username"
                        data-ng-model="credentials.username" placeholder="Username">
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-floating-label">
                 <span class="input-label">Password</span>
                 <input type="password" id="password" name="password"
                        data-ng-model="credentials.password" placeholder="Password">
             </label>
 
-            <button ng-click="signin()" class="button">Sign In</button>
+            <div class="text-center">
+            <button ng-click="signin()" class="button button-positive">Sign In</button>
             <button class="button button-positive" ng-click="signup()">Sign Up</button>
-
+        </div>
             <div data-ng-show="error" class="text-center text-danger">
                 <strong data-ng-bind="error"></strong>
             </div>
