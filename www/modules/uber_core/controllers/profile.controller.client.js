@@ -17,8 +17,6 @@ angular.module('uber_core').controller('ProfileController',[
 
       if (Authentication.user != null) $state.go('tabs');
 
-      $("div.userinfocontainer").html(<p>$scope.authentication.user</p>);
-
       $scope.signout = function(){
           console.log('running');
            AuthRoutes.signout().then(function(res){
@@ -36,7 +34,8 @@ angular.module('uber_core').controller('ProfileController',[
         $state.go('aboutus')
       }
 
-     // $scope.userinfo = function(){
-      //}
+      $scope.userinfo = function(){
+        $("div.userinfocontainer").html(<p>$scope.authentication.user</p>);
+      }
   }
 ]);
