@@ -4,11 +4,8 @@
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.1.1",
     "bowser": "browser#~1.0.0",
-<<<<<<< HEAD
     "platform.js": "platform#^1.3.1"
-=======
     "ionic-platform-web-client": "^0.7.1"
->>>>>>> 289558cf69fbb49726c84ebfe03976128161697f
   },
   "dependencies": {
     "ng-cordova-oauth": "~0.2.3",
