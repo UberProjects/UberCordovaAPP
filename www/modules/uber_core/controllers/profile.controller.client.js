@@ -11,6 +11,14 @@ angular.module('uber_core').controller('ProfileController',[
   '$ionicHistory',
   function($scope, AuthRoutes, $state, Authentication, $ionicHistory){
       //TODO move all signout logic to one place and should wipe all app data
+      $scope.authentication = Authentication;
+
+      $scope.credentials = {};
+
+      if (Authentication.user != null) $state.go('tabs');
+
+      $("div.userinfocontainer").html(<p>$scope.authentication.user</p>);
+
       $scope.signout = function(){
           console.log('running');
            AuthRoutes.signout().then(function(res){
@@ -22,8 +30,13 @@ angular.module('uber_core').controller('ProfileController',[
               $state.go('signin');
           });
       };
+
+      //TODO: finish about us and yourprofile tabs!!
       $scope.aboutus = function(){
         $state.go('aboutus')
       }
+
+     // $scope.userinfo = function(){
+      //}
   }
 ]);
