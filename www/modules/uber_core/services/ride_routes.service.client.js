@@ -22,6 +22,12 @@ angular.module('uber_core').factory('RideRoutes', ['$http', 'SERVER', 'Authentic
         },
         getRequestedRide: function (request_id) {
             return $http.post(SERVER + '/ride/getUberRequestedRide', {request_id: request_id, user: Authentication.user});
+        },
+        patchRequestedRide: function (request_id, end_pos) {
+            return $http.post(SERVER + '/ride/patchUberRequestedRide', {request_id: request_id, end_pos: end_pos, user: Authentication.user});
+        },
+        deleteRequestedRide: function (request_id) {
+            return $http.post(SERVER + '/ride/deleteUberRequestedRide', {request_id: request_id, user: Authentication.user});
         }
     }
 }]);
