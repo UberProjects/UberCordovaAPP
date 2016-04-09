@@ -13,7 +13,7 @@ angular.module('uber_core').controller('ProfileController',[
       //TODO move all signout logic to one place and should wipe all app data
       $scope.signout = function(){
           console.log('running');
-           AuthRoutes.singout().then(function(res){
+           AuthRoutes.signout().then(function(res){
               Authentication.user = null;
               $ionicHistory.nextViewOptions({
                 disableBack: true,
