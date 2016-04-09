@@ -15,15 +15,11 @@ angular.module('users').controller('AuthenticationController', [
     '$cordovaOauth',
     'SERVER',
     function ($scope, $http, $state, Authentication, $ionicHistory, AuthRoutes, $cordovaOauth, SERVER) {
-        console.log('@@@@@@@@@@@@@@@@@@@@@@HELLO THERE!!!!');
         $scope.authentication = Authentication;
 
         $scope.credentials = {};
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
         console.log(Authentication.user);
         if (Authentication.user != null) {
-            console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-            console.log(Authentication.user);
             $state.go('tabs');
         }
 
