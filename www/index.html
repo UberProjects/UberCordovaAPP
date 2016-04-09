@@ -16,6 +16,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
     <script src="lib/ng-cordova/ng-cordova.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -41,6 +42,7 @@
     <script src="modules/uber_core/controllers/ride_home.controller.client.js"></script>
     <script src="modules/uber_core/controllers/profile.controller.client.js"></script>
     <script src="modules/uber_core/controllers/pending_ride.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/test_uber.controller.client.js"></script>
     <script src="modules/uber_core/directives/select_list.directive.client.js"></script>
     <script src="modules/uber_core/directives/friend_view.directive.client.js"></script>
     <script src="modules/uber_core/directives/map.directive.client.js"></script>
@@ -49,6 +51,7 @@
     <script src="modules/uber_core/services/ride_state.service.client.js"></script>
     <script src="modules/uber_core/services/ride_routes.service.client.js"></script>
     <script src="modules/uber_core/services/notifications.service.client.js"></script>
+    <script src="modules/uber_core/services/accept_ride.service.client.js"></script>
     <script src="modules/uber_core/services/friends_contact.service.client.js"></script>
 
 
@@ -63,7 +66,8 @@
     <script src="modules/users/services/users.client.sertice.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
 
   </head>
 

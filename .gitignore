@@ -32,10 +32,12 @@ platforms/
 
 plugins/
 
-resources/
+www/lib/
 
 scss/
 
 hooks/
 
 .idea/
+
+.io-config.json

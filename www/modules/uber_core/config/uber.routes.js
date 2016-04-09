@@ -84,6 +84,15 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
           controller:'ProfileController'
         }
       }
+    }).
+    state('tabs.test_uber', {
+        url: '/test_uber',
+        views: {
+            'ride-tab': {
+                templateUrl: dirRoot + 'test_uber.client.view.html',
+                controller: 'TestUberController'
+            }
+        }
     })
   }
 ]);

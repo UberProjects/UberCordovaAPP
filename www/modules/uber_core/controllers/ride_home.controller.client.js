@@ -20,6 +20,11 @@ angular.module('uber_core').controller('RideHomeController', [
         $state.go('tabs.saved_ride')
       };
 
+      $scope.goToTest = function() {
+          console.log('GOING TO TEST!!!!');
+          $state.go('tabs.test_uber');
+      };
+
 
       $scope.mapCb = function(err, map, position){
 

@@ -5,17 +5,39 @@
 'use strict';
 
 var app = angular.module(
-  ApplicationConfiguration.applicationModuleName,
-  ApplicationConfiguration.applicationModuleVendorDependencies
+    ApplicationConfiguration.applicationModuleName,
+    ApplicationConfiguration.applicationModuleVendorDependencies
 );
 
+<<<<<<< HEAD
 app.constant('SERVER','http://localhost:3000/v1');
 //app.constant('SERVER','http://localhost:8100/v1');
+=======
+app.constant('SERVER','http://localhost:8100/v1');
+>>>>>>> 289558cf69fbb49726c84ebfe03976128161697f
 
-app.run(function($ionicPlatform) {
+app.run(function($ionicPlatform, $q) {
   $ionicPlatform.ready(function() {
 
     window.location.hash = '#/signin';
+
+    window.push_data_cb = [];
+        //Horrible horrible hack
+    var push = new Ionic.Push({
+        "debug":true,
+        "onNotification": function(data){
+            for( var i in window.push_data_cb ){
+                window.push_data_cb[i](data);
+            }
+        }
+    });
+
+    var tokenDef = $q.defer();
+    push.register(function(token) {
+       tokenDef.resolve(token);
+    });
+
+    window.push_token_promise = tokenDef.promise;
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -26,5 +48,6 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
+
 });
 
