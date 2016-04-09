@@ -15,6 +15,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
     <script src="lib/ng-cordova/ng-cordova.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
@@ -61,7 +62,8 @@
     <script src="modules/users/services/users.client.sertice.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
 
   </head>
 

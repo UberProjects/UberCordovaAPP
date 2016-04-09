@@ -16,6 +16,15 @@ app.run(function($ionicPlatform) {
 
     window.location.hash = '#/signin';
 
+    var push = new Ionic.Push({
+        "debug":true
+    });
+
+    push.register(function(token) {
+        // Log out your device token (Save this!)
+        console.log("Got Token:",token.token);
+    });
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
