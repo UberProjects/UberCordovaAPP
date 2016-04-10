@@ -31,11 +31,11 @@ angular.module('uber_core').controller('ProfileController',[
 
       //TODO: finish about us and yourprofile tabs!!
       $scope.aboutus = function(){
-        $state.go('aboutus')
-      }
+        $state.go('aboutus');
+      };
 
       $scope.userinfo = function(){
         $("div.userinfocontainer").html("<p>$scope.authentication.user</p>");
-      }
+      };
   }
 ]);
