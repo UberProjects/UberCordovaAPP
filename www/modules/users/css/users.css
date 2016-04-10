@@ -54,6 +54,14 @@ textarea, textarea, input[type="text"], input[type="password"], input[type="date
 	text-decoration: none;
 }
 
+a:link{
+	color: teal;
+}
+
+a:visited{
+	color: #FF00FF;
+}
+
 .ion-nav-bar{
 	background-color: #336B87;
     border-color: transparent;
