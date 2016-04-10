@@ -41,15 +41,3 @@ hooks/
 .idea/
 
 .io-config.json
-
-*.xcf
-
-platforms/ios/cordova/build-release.xcconfig
-
-*.xcconfig
-
-*.xcconfig
-
-platforms/ios/cordova/build-debug.xcconfig
-
-platforms/ios/cordova/build-release.xcconfig
