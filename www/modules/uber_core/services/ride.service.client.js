@@ -10,6 +10,8 @@ angular.module('uber_core').service('Ride',[
 
         this.rideFriends = [];
 
+        this.initialRequestorPos = {};
+
         this.initRide = function(){
 
         };

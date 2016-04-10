@@ -50,7 +50,8 @@ app.run(function($ionicPlatform, $q) {
 //Init Google maps
 app.config(['uiGmapGoogleMapApiProvider', function(GoogleMapApiProviders){
    GoogleMapApiProviders.configure({
-       key:'AIzaSyC54BQZh1ODmeqbMXZ8NvuNTmiVymBz0oE'
+       key:'AIzaSyC54BQZh1ODmeqbMXZ8NvuNTmiVymBz0oE',
+       libraries:'places'
    })
 }]);
 
