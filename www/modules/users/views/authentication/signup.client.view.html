@@ -1,7 +1,8 @@
 <section data-ng-controller="AuthenticationController">
-    <ion-view title="Sign Up" align-title="center">
+    <ion-view class="background">
+    <ion-nav-title align-title="center" class="title" style="font-weight:bold">Sign Up</ion-nav-title>
         <ion-content padding="true">
-            <form name="userForm" data-ng-submit="finishSignup()">
+            <form name="userForm" data-ng-submit="finishSignup()" class="form-background">
                     <label class="item item-input">
                         <input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="First Name">
                     </label>
@@ -21,7 +22,7 @@
                         <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" data-ng-model="credentials.phoneNumber" placeholder="Phone Number">
                     </label>
                     <div class="text-center">
-                        <button type="submit" class="button button-full p button-positive">Link Uber</button>
+                        <button type="submit" class="button button-full p button-style">Link Uber</button>
                     </div>
                     <div data-ng-show="error" class="text-center text-danger">
                         <strong data-ng-bind="error"></strong>
@@ -31,5 +32,6 @@
                 {{authRes}}
             </div>
         </ion-content>
-    </ion-view>
+            </ion-view>
+
 </section>

@@ -1,25 +1,30 @@
 .title {
 	color: white;
-	background-color: #021C1E;
-	margin: 0px;
+	background-color: #336B87;
 }
 
-.button .button-positive{
+.form-background{
+	background-color: white;
+}
+
+.button-style{
+	font-weight: bold;
 	color: white;
-	background-color: #000873;
+	background-color: #336B87;
 }
 
 .p{
-	padding: 10px 5px 10px 5px;
-
+	padding: 3px 5px 3px 5px;
 }
 
 .no_ul{
 	text-decoration: none;
 }
 
-
 .ion-nav-bar{
-	color: white;
-	background-color: #000000;
+	background-color: #336B87;
+}
+
+.background{
+	background-image: url('background.jpeg');
 }
