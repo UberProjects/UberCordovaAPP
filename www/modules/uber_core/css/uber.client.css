@@ -54,9 +54,9 @@ textarea, textarea, input[type="text"], input[type="password"], input[type="date
     background-image: none;
 }
 
-.[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
-    border-color: transparent;
-}
+/*.[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {*/
+    /*border-color: transparent;*/
+/*}*/
 
 .no_ul{
     text-decoration: none;
