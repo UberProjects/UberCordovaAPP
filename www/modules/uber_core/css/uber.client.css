@@ -68,5 +68,6 @@ textarea, textarea, input[type="text"], input[type="password"], input[type="date
 }
 
 .background{
-    background-image: url('background.jpeg');
+    background-image: url('background2.jpeg');
+    background-size: 100%;
 }

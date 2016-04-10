@@ -3,10 +3,6 @@
 	background-color: #336B87;
 }
 
-.form-background{
-	background-color: white;
-    border-color: black;
-}
 
 .button-style{
 	font-weight: bold;
@@ -68,5 +64,5 @@ a:visited{
 }
 
 .background{
-	background-image: url('background.jpeg');
+	background-image: url("background.jpeg");
 }
