@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="modules/users/css/users.css" rel="stylesheet">
     <link href="modules/uber_core/css/uber.client.css" rel="stylesheet">
     <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.min.css" rel="stylesheet">
@@ -15,14 +15,19 @@
     -->
 
     <!-- ionic/angularjs js -->
+
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
     <script src="lib/ng-cordova/ng-cordova.min.js"></script>
+    <script src="lib/ng-cordova-oauth/ng-cordova-oauth.min.js"></script>
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script src="lib/socket-io/socket.min.js"></script>
-    <script src="lib/ng-cordova-oauth/ng-cordova-oauth.min.js"></script>
+    <script src="lib/lodash/lodash.js"></script>
     <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.min.js"></script>
+    <script src="lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+
 
       <!-- your app's js -->
     <script src="config.js"></script>
@@ -43,12 +48,10 @@
     <script src="modules/uber_core/controllers/profile.controller.client.js"></script>
     <script src="modules/uber_core/controllers/pending_ride.controller.client.js"></script>
     <script src="modules/uber_core/controllers/test_uber.controller.client.js"></script>
+    <script src="modules/uber_core/controllers/ride_destination.controller.client.js"></script>
     <script src="modules/uber_core/directives/select_list.directive.client.js"></script>
     <script src="modules/uber_core/directives/friend_view.directive.client.js"></script>
-    <script src="modules/uber_core/directives/map.directive.client.js"></script>
-    <script src="modules/uber_core/directives/home_map.directive.client.js"></script>
-    <script src="modules/uber_core/services/maps.service.client.js"></script>
-    <script src="modules/uber_core/services/ride_state.service.client.js"></script>
+    <script src="modules/uber_core/services/ride.service.client.js"></script>
     <script src="modules/uber_core/services/ride_routes.service.client.js"></script>
     <script src="modules/uber_core/services/notifications.service.client.js"></script>
     <script src="modules/uber_core/services/accept_ride.service.client.js"></script>

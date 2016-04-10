@@ -1,43 +1,29 @@
 <ion-view view-title="New Ride">
-  <ion-content class="padding">
-      <ion-list show-delete="shouldShowDelete">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-positive" ng-click="contactInput()">Add</button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="searchText" ng-keyup="searchForFriend(searchText)">
+        </label>
+        <ion-list>
+            <ion-item ng-repeat="f in data.searchList" ng-click="addToRide(f)">
+                <h2>+{{ f.name || f.id }}</h2>
+            </ion-item>
+        </ion-list>
 
+        <ion-list show-delete="shouldShowDelete">
+            <ion-item-sliding>
+                <ion-item ng-repeat="f in data.friends">
+                    <h2>{{ f.name || f.id }}</h2>
+                    <p>{{f.status}}</p>
+                    <ion-option-button class="button-assertive" ng-click="removeFromRide(f)">Delete</ion-option-button>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-list>
 
-          <ion-item-sliding>
-              <ion-item ng-repeat="f in data.friends">
-                  <h2>{{ f.name }}</h2>
-                  <ion-option-button class="button-assertive" ng-click="removeFromRide(f)">Delete</ion-option-button>
-              </ion-item>
+        <button class="button button-full" ng-click="continue()">Continue</button>
 
-              <!--<ion-item-options>-->
-                  <!--<button danger (click)="removeItem()"><icon trash></icon> Delete</button>-->
-              <!--</ion-item-options>-->
-
-          </ion-item-sliding>
-
-              <label class="item item-input">
-                  <i class="icon ion-search placeholder-icon"></i>
-                  <input type="search" placeholder="Search" ng-model="searchText" ng-keyup="searchForFriend(searchText)">
-              </label>
-
-          <ion-item ng-repeat="f in data.searchList" ng-click = "addToRide(f)">
-              <div>+ {{ f.name }}</div>
-          </ion-item>
-
-      </ion-list>
-
-     <!--<button class="button" ng-click="addNumber()">Friend</button>-->
-     <!--<button class="button" ng-click="addFromContactsList()">Add From Contacts</button>-->
-     <!--<button class="button" ng-click="continue()">Continue</button>-->
-     <!--<button class ="button" ng-click="completedRide()">completed_ride</button>-->
-
-     <!--<select-list friends="friends"></select-list>-->
-
-     <!--<button class="button" ng-click="addNumber()">Friend</button>-->
-
-     <!--<button class="button" ng-click="">Add From Contacts</button>-->
-
-     <!--<select-list friends="friends"></select-list>-->
-
-  </ion-content>
+    </ion-content>
 </ion-view>

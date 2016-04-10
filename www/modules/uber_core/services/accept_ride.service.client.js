@@ -6,15 +6,18 @@
 angular.module('uber_core').service('AcceptRide',[
     'Notifications',
     '$ionicPopup',
-    function(Notifications, $ionicPopup){
+    '$ionicBackdrop',
+    function(Notifications, $ionicPopup, $ionicBackdrop){
         this.listenForRequest = function(){
             Notifications.appNotifications(function(data){
+               $ionicBackdrop.retain();
                var answerRequest = $ionicPopup.confirm({
                   'title':'Ride Request',
                   'template':'Would you like to accept a ride form: ' + '?'
                });
 
                answerRequest.then(function(res){
+                   $ionicBackdrop.release();
                    if(res){
                       console.log('takes a ride');
                    } else {

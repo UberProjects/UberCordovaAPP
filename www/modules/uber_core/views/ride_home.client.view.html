@@ -1,16 +1,17 @@
 <ion-view view-title="Ride">
   <ion-content>
 
-    <div class="row row-top">
-      <map callback="mapCb" zoomlevel="15"></map>
-    </div>
-    <div class="row row-bottom">
-      <div class="col">
-        <button class="button button-full" ng-click="startNewRide()">New Ride</button>
-      </div>
-      <div class="col">
-        <button class="button" ng-click="goToTest()">Go to test</button>
-      </div>
+      <ui-gmap-google-map
+          center="myCenter.center"
+          zoom='myCenter.zoom'
+          refresh="myCenter.reload"
+      >
+      </ui-gmap-google-map>
+
+    <div style="height: 100%; position: absolute"></div>
+
+    <div>
+      <button class="button button-full" ng-click="startNewRide()">New Ride</button>
     </div>
   </ion-content>
 </ion-view>

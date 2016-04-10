@@ -9,76 +9,47 @@ angular.module('uber_core').factory('FriendsContact', [
     'RideRoutes',
     '$q',
     '$window',
-    function ($ionicPopup, RideRoutes, $q, $window) {
-
-        function validateUser() {
-
-        }
+    'Ride',
+    function ($ionicPopup, RideRoutes, $q, $window, Ride) {
 
         return function ($scope) {
+
             $scope.popup = {
                 input: ''
             };
-            var _ = $window._;
+
             var friendsList = [];
             var listeners = [];
 
             var searchList = [];
             var searchListeners = [];
 
-            //this.contactInput = function () {
-            //    var pop = $ionicPopup.show({
-            //        template: '<input type="text" ng-model="popup.input">',
-            //        title: 'Enter Number or User Name',
-            //        scope: $scope,
-            //        buttons: [
-            //            {text: 'Cancel'},
-            //            {
-            //                text: 'Add',
-            //                type: 'button-positive',
-            //                onTap: function (e) {
-            //                    getStatus({
-            //                        id: $scope.popup.input,
-            //                        status: 'Searching...',
-            //                        name: '',
-            //                        phoneNumber: ''
-            //                    });
-            //                    update();
-            //                    pop.close();
-            //                    e.preventDefault();
-            //                }
-            //            }
-            //        ]
-            //    });
-            //};
-
-            //this.addFromContacts = function() {
-            //    navigator.contacts.find(
-            //            [navigator.contacts.fieldType.displayName],
-            //            gotContacts,
-            //            errorHandler);
-            //
-            //        function errorHandler(e) {
-            //            e.preventDefault();
-            //            console.log("errorHandler: "+e);
-            //        }
-            //
-            //        function gotContacts(c) {
-            //            for (var i = 0, len = c.length; i < len; i++) {
-            //
-            //                console.dir(c[i]);
-            //                console.log('Number' + c[i].phoneNumbers[0].value);
-            //                getStatus({
-            //                    id: c[i].id,
-            //                    status: 'Searching...',
-            //                    name: c[i].name.formatted,
-            //                    phoneNumber: c[i].phoneNumbers[0].value
-            //                });
-            //
-            //                update();
-            //            }
-            //        }
-            //}
+            this.contactInput = function () {
+                var pop = $ionicPopup.show({
+                    template: '<input type="text" ng-model="popup.input">',
+                    title: 'Enter Number or User Name',
+                    scope: $scope,
+                    buttons: [
+                        {text: 'Cancel'},
+                        {
+                            text: 'Add',
+                            type: 'button-positive',
+                            onTap: function (e) {
+                                getStatus({
+                                    id: $scope.popup.input,
+                                    status: 'Searching...',
+                                    name: '',
+                                    phoneNumber: '',
+                                    inDb: false
+                                });
+                                update();
+                                pop.close();
+                                e.preventDefault();
+                            }
+                        }
+                    ]
+                });
+            };
 
             this.removeFromRide = function(friend){
                 var index = friendsList.indexOf(friend);
@@ -86,12 +57,10 @@ angular.module('uber_core').factory('FriendsContact', [
                     friendsList.splice(index, 1);
                 }
                 update();
-            }
+            };
 
             this.addToRide = function(friend){
-                console.log("adding" + friend.name + " to ride");
-                friendsList.push(friend);
-                update();
+                getStatus(friend);
             };
 
             this.searchForFriend = function(searchTerm){
@@ -112,10 +81,6 @@ angular.module('uber_core').factory('FriendsContact', [
                     console.log("errorHandler: "+e);
                 }
 
-                function isLetter(str) {
-                    return str.length === 1 && str.match(/[a-z]/i);
-                }
-
                 function gotContacts(c) {
                     for (var i = 0, len = c.length; i < len; i++) {
 
@@ -125,7 +90,8 @@ angular.module('uber_core').factory('FriendsContact', [
                             id: c[i].id,
                             status: 'Searching...',
                             name: c[i].name.formatted,
-                            phoneNumber: c[i].phoneNumbers[0].value
+                            phoneNumber: c[i].phoneNumbers[0].value,
+                            inDd: false
                         };
                         searchList.push(newFriend);
                         updateSearchList();
@@ -157,26 +123,45 @@ angular.module('uber_core').factory('FriendsContact', [
                 searchList = [];
             }
 
-        //    function getStatus(friend) {
-        //        var newFriend = friend;
-        //        friendsList.push(newFriend);
-        //        update();
-        //
-        //        RideRoutes.checkFriend(friend).then(function (res) {
-        //            var data = res.data.message;
-        //            if (data.status == 'KNOWN') {
-        //                newFriend.status = 'Current Member';
-        //                newFriend.name = data.name;
-        //                newFriend.phoneNumber = data.phoneNumber;
-        //            } else if (data.status == 'UNKNOWN') {
-        //                newFriend.status = 'Unknown User';
-        //            } else {
-        //                newFriend.status = data.status;
-        //            }
-        //            update();
-        //        }, function (err) {
-        //            console.log(err);
-        //        })
-        //    }
+            function getStatus(friend) {
+                var newFriend = friend;
+                friendsList.push(newFriend);
+                update();
+
+                RideRoutes.checkFriend(friend).then(function (res) {
+                    var data = res.data.message;
+                    if (data.status == 'KNOWN') {
+                        newFriend.status = 'Current Member';
+                        newFriend.name = data.name;
+                        newFriend.id = data.id;
+                        newFriend.phoneNumber = data.phoneNumber;
+                        newFriend.inDb = true;
+                    } else if (data.status == 'UNKNOWN') {
+                        newFriend.status = 'Unknown User';
+                        newFriend.inDb = false;
+                    } else {
+                        newFriend.status = data.status;
+                    }
+                    update();
+                }, function (err) {
+                    console.log(err);
+                })
+            }
+
+            this.saveFriends = function(){
+
+                var inDb = [];
+                friendsList.forEach(function(f){
+                   if(f.inDb) inDb.push(f);
+                });
+
+                console.log(inDb);
+
+                if( inDb.length > 0 ){
+                   Ride.setRideFriends(inDb);
+                } else {
+                   //TODO warn user
+                }
+            }
         };
     }]);
