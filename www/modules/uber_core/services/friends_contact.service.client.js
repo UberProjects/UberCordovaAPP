@@ -148,15 +148,17 @@ angular.module('uber_core').factory('FriendsContact', [
                 })
             }
 
-            this.initRide = function(){
+            this.saveFriends = function(){
 
                 var inDb = [];
                 friendsList.forEach(function(f){
                    if(f.inDb) inDb.push(f);
                 });
 
+                console.log(inDb);
+
                 if( inDb.length > 0 ){
-                   Ride.rideFriends = inDb;
+                   Ride.setRideFriends(inDb);
                 } else {
                    //TODO warn user
                 }

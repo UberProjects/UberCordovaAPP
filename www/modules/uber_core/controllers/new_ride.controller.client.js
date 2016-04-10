@@ -8,10 +8,8 @@ angular.module('uber_core').controller('NewRideController', [
     'Authentication',
     '$ionicPopup',
     '$state',
-    'Notifications',
     'FriendsContact',
-    '$ionicBackdrop',
-    function ($scope, Authentication, $ionicPopup, $state, Notifications, FriendsContact) {
+    function ($scope, Authentication, $ionicPopup, $state, FriendsContact) {
 
         $scope.data = {
             number: '',
@@ -37,6 +35,7 @@ angular.module('uber_core').controller('NewRideController', [
         });
 
         $scope.continue = function () {
+            contactHelper.saveFriends();
             $state.go('tabs.ride_destination')
         };
 
