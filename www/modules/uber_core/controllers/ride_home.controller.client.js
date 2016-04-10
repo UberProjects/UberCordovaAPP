@@ -5,45 +5,48 @@
 
 angular.module('uber_core').controller('RideHomeController', [
   '$scope',
-  'RideState',
   '$state',
   'RideRoutes',
-   function($scope, RideState, $state, RideRoutes){
+  '$cordovaGeolocation',
+  'uiGmapGoogleMapApi',
+   function($scope, $state, RideRoutes, $cordovaGeolocation, uiGmapGoogleMapApi){
       //Needs to store current ride state and render proper view
       $scope.startNewRide = function(){
-        RideState.updateState('new');
         $state.go('tabs.new_ride')
       };
 
       $scope.startSavedRide = function(){
-        RideState.updateState('saved');
         $state.go('tabs.saved_ride')
       };
 
-      $scope.goToTest = function() {
-          console.log('GOING TO TEST!!!!');
-          $state.go('tabs.test_uber');
-      };
+      $scope.myCenter = {
+         center: {
+             latitude: 0,
+             longitude: 0
+          },
+          zoom:8,
+          reload:false
+       };
+
+      uiGmapGoogleMapApi.then(function(maps){
+          $cordovaGeolocation.getCurrentPosition({
+              timeout:1000,
+              enableHeightAccracy:false
+          }).then(function(position){
+             $scope.mapReload = true;
+             $scope.myCenter = {
+                 center: {
+                     latitude: position.coords.latitude,
+                     longitude: position.coords.longitude
+                 },
+                 zoom:15,
+                 reload:true
+             };
+             $scope.myPos = {}
+          });
+      });
 
 
-      $scope.mapCb = function(err, map, position){
 
-        var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
-
-        newMarker(map, pos)
-      };
-
-      function newMarker(map, pos){
-         var marker = new google.maps.Marker({
-          position: pos,
-          map: map,
-          title: 'You are Here'
-        });
-
-        marker.setMap(map);
-      }
    }
 ]);

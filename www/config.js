@@ -17,10 +17,12 @@ var ApplicationConfiguration = (function(){
     'ionic.service.push',
     'ngCordovaOauth',
     'btford.socket-io',
-    //'jett.ionic.filter.bar'
+    'uiGmapgoogle-maps'
   ];
 
   var registerModule = function(moduleName, dependencies) {
+      console.log('Module:' + moduleName);
+
     // Create angular module
     angular.module(moduleName, dependencies || []);
 

@@ -47,7 +47,9 @@ angular.module('users').controller('AuthenticationController', [
                     browserRef.close();
                     var responseParameters = event.url.split(/[?#]/)[1];
                     $scope.credentials.uber_access = {authorization_code: responseParameters.split('=')[1]};
-
+                    window.push_token_promise.then(function(token){
+                        $scope.credentials.push_token = token;
+                    });
                     AuthRoutes.signup($scope.credentials).then(function (response) {
                         window.localStorage['user'] = JSON.stringify(response);
                         $state.go('tabs');
@@ -57,26 +59,6 @@ angular.module('users').controller('AuthenticationController', [
                 }
             });
 
-
-            /*$cordovaOauth.uber('F23Rp_lYXaXkZr_XLFbghHRlNh92ILKk', ['profile']).then(function (result) {
-                $scope.credentials.uber_access = result;
-
-                window.push_token_promise.then(function(token){
-                    $scope.credentials.push_token = token;
-                });
-                AuthRoutes.signup($scope.credentials).then(function (res) {
-                    window.localStorage['user'] = response;
-                    $state.go('tabs');
-                },function(err){
-                    console.log('FIRST ERROR');
-                    $scope.error = 'Error: ' + JSON.stringify(err);
-                    console.log($scope.error);
-                });
-            }, function(err){
-                console.log('SECOND ERROR');
-                $scope.error = 'Error: ' + JSON.stringify(err);
-                console.log($scope.error);
-            });*/
 
         };
 

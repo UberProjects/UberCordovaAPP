@@ -4,52 +4,41 @@
  */
 
 angular.module('uber_core').controller('NewRideController', [
-  '$scope',
-  'Authentication',
-  '$ionicPopup',
-  '$state',
-  'Notifications',
-  'FriendsContact',
-  function($scope, Authentication, $ionicPopup, $state, Notifications, FriendsContact){
-    $scope.data = {
-      number:'',
-      showDelete: false,
-      friendsList: [],
-      products:[]
-    };
+    '$scope',
+    'Authentication',
+    '$ionicPopup',
+    '$state',
+    'Notifications',
+    'FriendsContact',
+    '$ionicBackdrop',
+    function ($scope, Authentication, $ionicPopup, $state, Notifications, FriendsContact) {
 
-    Notifications.newConnectionInfo.then(function(id){
-        console.log(id);
-    });
+        $scope.data = {
+            number: '',
+            showDelete: false,
+            friendsList: [],
+            products: []
+        };
 
-    var contactHelper = new FriendsContact($scope);
+        var contactHelper = new FriendsContact($scope);
 
-    $scope.addToRide = contactHelper.addToRide;
-    $scope.searchForFriend = contactHelper.searchForFriend;
-    $scope.removeFromRide = contactHelper.removeFromRide;
+        $scope.addToRide = contactHelper.addToRide;
+        $scope.searchForFriend = contactHelper.searchForFriend;
+        $scope.removeFromRide = contactHelper.removeFromRide;
+        $scope.contactInput = contactHelper.contactInput;
 
 
-    contactHelper.addFriendsListener(function(friendsList){
-        $scope.data.friends = friendsList;
-    });
+        contactHelper.addFriendsListener(function (friendsList) {
+            $scope.data.friends = friendsList;
+        });
 
-    contactHelper.searchListener(function(searchList){
-      $scope.data.searchList = searchList;
-    });
+        contactHelper.searchListener(function (searchList) {
+            $scope.data.searchList = searchList;
+        });
 
-    $scope.continue = function(){
-      //TODO add logic for calling server and creating new ride
-      $state.go('tabs.pending_ride')
-    };
+        $scope.continue = function () {
+            $state.go('tabs.ride_destination')
+        };
 
-    $scope.completedRide = function() {
-        console.log('GOING TO COMPLETED');
-        $state.go('tabs.completed_ride');
-    };
-
-    //TODO make this better
-    function validNumber(num){
-      return num.length > 0
     }
-  }
 ]);

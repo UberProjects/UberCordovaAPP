@@ -9,6 +9,7 @@
     "angular-touch": "1.4.7",
     "angular-bootstrap": "0.14.3",
     "angular-ui-utils": "3.0.0",
-    "angular-ui-router": "0.2.15"
+    "angular-ui-router": "0.2.15",
+    "angular-google-maps":"2.3.2"
   }
 }

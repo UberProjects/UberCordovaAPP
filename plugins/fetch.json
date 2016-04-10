@@ -57,9 +57,8 @@
     },
     "cordova-plugin-inappbrowser": {
         "source": {
-            "type": "git",
-            "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
-            "subdir": "."
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser"
         },
         "is_top_level": true,
         "variables": {}
@@ -68,6 +67,14 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-contacts"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-keyboard"
         },
         "is_top_level": true,
         "variables": {}
