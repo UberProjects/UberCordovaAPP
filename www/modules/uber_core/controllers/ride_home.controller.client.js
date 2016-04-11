@@ -22,29 +22,40 @@ angular.module('uber_core').controller('RideHomeController', [
 
         $scope.myCenter = {
             center: {
-                latitude: 0,
-                longitude: 0
+                latitude: 40.0132878490935,
+                longitude: -105.26357889999997
             },
-            zoom: 8,
+            zoom: 15,
+            reload: false
+        };
+
+        Ride.initialRequestorPos = {
+            center: {
+                latitude: 40.0132878490935,
+                longitude: -105.26357889999997
+            },
+            zoom: 15,
             reload: false
         };
 
         uiGmapGoogleMapApi.then(function(maps){
-            $cordovaGeolocation.getCurrentPosition({
-                timeout: 1000,
-                enableHeightAccracy: false
-            }).then(function (position) {
+            console.log('Maps ready');
+            navigator.geolocation.getCurrentPosition(function (position) {
+                console.log('Position: ', position);
                 $scope.mapReload = true;
                 $scope.myCenter = {
                     center: {
-                        latitude: position.coords.latitude,
+                        latitude: position.coords.latitude ,
                         longitude: position.coords.longitude
                     },
                     zoom: 15,
                     reload: true
                 };
+                console.log($scope.myCenter);
                 Ride.initialRequestorPos = $scope.myCenter;
-            });
+            }, function(err){
+                console.log(err);
+            },{ maximumAge: 3000, timeout: 15000, enableHighAccuracy: true });
         });
 
 

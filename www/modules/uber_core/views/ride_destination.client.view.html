@@ -1,4 +1,4 @@
-<ion-view view-title="Select Destination">
+<ion-view view-title="Select Destination" class="background">
     <ion-content>
         <ui-gmap-google-map center="mapInit.center" zoom="mapInit.zoom" draggable="true" options="options">
             <ui-gmap-marker
@@ -8,12 +8,14 @@
             >
             </ui-gmap-marker>
             <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="searchbox.position" parentdiv="searchbox.parentDiv"></ui-gmap-search-box>
+
         </ui-gmap-google-map>
-        <h4 style="margin-left: 4px">Set Destination </h4>
+
+        <h4 style="margin-left: 4px; color: white;">Set Destination </h4>
         <div style="width: 100%" id="mapSearchBox"></div>
 
 
-        <button class="button button-full" ng-click="continue()">Continue</button>
+        <button class="button button-style button-full" ng-click="continue()">Continue</button>
 
     </ion-content>
 </ion-view>
