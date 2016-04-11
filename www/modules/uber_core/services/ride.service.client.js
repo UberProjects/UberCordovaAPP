@@ -6,11 +6,14 @@
 angular.module('uber_core').service('Ride',[
     'Notifications',
     'RideRoutes',
-    function(Notifications, RideRoutes){
+    'Authentication',
+    function(Notifications, RideRoutes, Authentication){
 
         var _ = window._;
         var rideFriends = [];
         var destination = {};
+        this.initialRequestorPos = {};
+        var currentRide = {};
 
         this.setRideFriends = function(friends){
            rideFriends = _.map(friends, function(f){
@@ -21,30 +24,39 @@ angular.module('uber_core').service('Ride',[
         };
 
         this.setRideDestination = function(destGeo){
-           console.log(destGeo);
            if( _.has(destGeo,'geometry.access_points') ){
-              destination = destGeo.access_points[0].location;
-              console.log(destination);
+              destination = destGeo.geometry.access_points[0].location;
+               //TODO iterate though access_points to find the best one
               return true;
            } else {
               return false;
            }
         };
 
-        this.initialRequestorPos = {};
 
         this.initRide = function(){
-            console.log('running in initRide');
-            RideRoutes.initRide(rideFriends, destination).then(function(ret){
-                console.log(ret);
-            }, function(err){
-                console.log(err);
+
+            var localInitPos = this.initialRequestorPos;
+            Notifications.newConnectionInfo.then(function(res){
+                Authentication.user.room_uuid = res.room_uuid;
+                Authentication.user.socket_id = res.socket_id;
+                RideRoutes.initRide(rideFriends, destination, localInitPos).then(function(ret){
+                    console.log(ret);
+                }, function(err){
+                    console.log(err);
+                });
             });
+
         };
 
         Notifications.rideStatus(function(rideUpdate){
-
+            console.log('Ride Updated!!!!!!!!', rideUpdate);
+            currentRide = rideUpdate;
         });
+
+        this.setCurrentRide = function(ride){
+           currentRide = ride;
+        };
 
     }
 ]);

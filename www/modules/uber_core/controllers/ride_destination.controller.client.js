@@ -11,11 +11,11 @@ angular.module('uber_core').controller('RideDestination',[
     function($scope, Ride, uiGmapGoogleMapApi, $state){
 
         $scope.markerOptions = {
-
            label:'You are here'
         };
 
         $scope.mapInit = Ride.initialRequestorPos;
+
         $scope.options = {scrollwheel: false};
 
         var events = {
