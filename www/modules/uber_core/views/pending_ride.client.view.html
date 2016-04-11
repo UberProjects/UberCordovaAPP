@@ -1,11 +1,32 @@
 <ion-view view-title="Pending Ride">
-  <ion-content class="padding">
+    <ion-content class="padding">
 
-    <uber-map></uber-map>
+        <uber-map></uber-map>
 
-    <friends-list></friends-list>
+        <friends-list></friends-list>
 
-    <button class="button" ng-click="">Start!</button>
+        <ion-list show-delete="shouldShowDelete">
+            <ion-item-sliding>
+                <ion-item ng-repeat="f in data.friends">
+                    <h2>{{ f.name || f.id }}</h2>
+                    <p>{{f.status}}</p>
+                    <ion-option-button class="button-assertive" ng-click="removeFromRide(f)">Delete</ion-option-button>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-list>
 
-  </ion-content>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Ride with Uber
+                </div>
+                <select id="rideEstimates" ng-model="rideEstimatesList" ng-options="product as product.display_name + ': ' + product.estimate for product in data.rideEstimates">
+                </select>
+            </label>
+        </div>
+        <p>You're ordering {{rideEstimatesList.display_name}}</p>
+
+        <button class="button" ng-click="startRide(rideEstimatesList.product_id)">Start!</button>
+
+    </ion-content>
 </ion-view>
