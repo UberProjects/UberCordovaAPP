@@ -1,26 +1,30 @@
 <section ng-controller="AuthenticationController">
-    <ion-view title="Ride With Friends">
+    <ion-view class="background">
+    <ion-nav-bar class="ion-nav-bar"></ion-nav-bar>
+    <ion-nav-title class="title" style="font-weight:bold">Ride With Friends</ion-nav-title>
         <ion-content padding="true">
             <!-- TODO don't submit form on state change -->
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Username</span>
+            <br>
+            <label class="item item-input form-background">
                 <input type="text" id="username" name="username"
                        data-ng-model="credentials.username" placeholder="Username">
             </label>
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Password</span>
+            <label class="item item-input form-background">
                 <input type="password" id="password" name="password"
                        data-ng-model="credentials.password" placeholder="Password">
             </label>
 
+            <br><br><br>
+
             <div class="text-center">
-            <button ng-click="signin()" class="button p button-full button-positive">Sign In</button>
-           <a class="no_ul" href="#" ng-click="signup()">No Account?</a>
+            <button ng-click="signin()" class="button button-full button-style">Sign In</button>
+            <a class="no_ul p" href="#" ng-click="signup()">No Account?</a><br>
+            <a class="no_ul p" href="#" ng-click="forgot()">Forgot Password?</a>
+
         </div>
             <div data-ng-show="error" class="text-center text-danger">
                 <strong data-ng-bind="error"></strong>
             </div>
-
         </ion-content>
     </ion-view>
 </section>
