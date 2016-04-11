@@ -8,12 +8,21 @@ angular.module('uber_core').factory('RideRoutes', ['$http', 'SERVER', 'Authentic
         checkFriend: function(friend){
             return $http.post(SERVER + '/ride/checkFriend', {friend:friend, user: Authentication.user});
         },
-        initRide: function(friends, dest){
+        initRide: function(friends, dest, startPos){
             return $http.post(SERVER + '/ride/initRide', {
                 friends: friends,
                 destination: dest,
+                start: startPos.center,
                 user: Authentication.user
             });
+        },
+        respondToRideRequest: function(response, ride_id, location){
+            return $http.post(SERVER + '/ride/respondToRideRequest',{
+               response: response,
+               location: location,
+               ride_id: ride_id,
+               user: Authentication.user
+            })
         },
         getEstimatedPrice: function (start_pos, end_pos) {
             return $http.post(SERVER + '/ride/getUberEstimatedPrice', {start_pos: start_pos, end_pos: end_pos, user: Authentication.user});

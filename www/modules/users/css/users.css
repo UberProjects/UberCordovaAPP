@@ -8,12 +8,10 @@
 	background-color: #000873;
 }
 
-.p{
-	padding: 10px 5px 10px 5px;
-
-textarea, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
-    color: white;
+.p {
+    padding: 10px 5px 10px 5px;
 }
+
 
 .item-input{
     background-color: #2C2C2C;

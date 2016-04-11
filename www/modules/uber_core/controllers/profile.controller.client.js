@@ -18,7 +18,6 @@ angular.module('uber_core').controller('ProfileController',[
       if (Authentication.user != null) $state.go('tabs');
 
       $scope.signout = function(){
-          console.log('running');
            AuthRoutes.signout().then(function(res){
               Authentication.user = null;
               localStorage['user'] = null;
@@ -27,6 +26,8 @@ angular.module('uber_core').controller('ProfileController',[
                 historyRoot: false
               });
               $state.go('signin');
+          }, function(err){
+               console.log(err);
           });
       };
 
