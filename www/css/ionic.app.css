@@ -1,0 +1,26 @@
+#background{
+	background-color: black;
+}
+
+.title {
+	color: black;
+	margin: 0px;
+}
+
+.button .button-positive{
+	color: white;
+	background-color: #000873;
+}
+
+.p{
+	padding: 3px 5px 3px 5px;
+}
+
+.no_ul{
+	text-decoration: none;
+}
+
+.ion-nav-bar{
+	color: white;
+	background-color: #000000;
+}

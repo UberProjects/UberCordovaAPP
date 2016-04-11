@@ -1,0 +1,9 @@
+{
+  "name": "UberWithFriends",
+  "app_id": "",
+  "proxies":[{
+    "path":"/v1",
+    "proxyUrl":"http://localhost:3000/v1"
+  }]
+  "gulpStartupTasks": ["sass", "watch"]
+}
