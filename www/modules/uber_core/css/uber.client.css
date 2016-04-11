@@ -74,3 +74,8 @@ textarea, textarea, input[type="text"], input[type="password"], input[type="date
     background-image: url('background2.jpeg');
     background-size: 100%;
 }
+
+.tabs-top.tabs-striped .tab-item {
+    background-color: #336B87;
+    border-color: transparent;
+}
