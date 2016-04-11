@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 .angular-google-map-container{
     height: 400px;
 }
+=======
+>>>>>>> labelsUpdate
 .title {
     color: white;
     background-color: #336B87;
@@ -58,7 +61,11 @@ textarea, textarea, input[type="text"], input[type="password"], input[type="date
 }
 
 /*.[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {*/
+<<<<<<< HEAD
+/*border-color: transparent;*/
+=======
     /*border-color: transparent;*/
+>>>>>>> labelsUpdate
 /*}*/
 
 .no_ul{

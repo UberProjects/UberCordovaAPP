@@ -94,6 +94,7 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
         }
       }
     }).
+<<<<<<< HEAD
     state('tabs.test_uber', {
         url: '/test_uber',
         views: {
@@ -102,10 +103,12 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
                 controller: 'TestUberController'
             }
         }
+=======
     state('aboutus',{
       url:'/aboutus',
       templateUrl: dirRoot + 'aboutus.html',
       controller: 'ProfileController'
+>>>>>>> labelsUpdate
     })
   }
 ]);
