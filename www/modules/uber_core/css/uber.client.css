@@ -1,3 +1,76 @@
 .angular-google-map-container{
     height: 400px;
 }
+.title {
+    color: white;
+    background-color: #336B87;
+}
+
+.form-background{
+    background-color: white;
+    border-color: black;
+}
+
+.button-style{
+    font-weight: bold;
+    color: white;
+    background-color: #368BC1;
+    border-color: transparent;
+}
+
+.scroll{
+    border-color: transparent;
+}
+
+textarea, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+    color: white;
+}
+
+.item-input{
+    background-color: #2C2C2C;
+    /*padding : 0;*/
+    border-color: transparent;
+    color: white;
+}
+
+.bar .back-button{
+    font-weight: bold;
+    color: white;
+    background-color: #336B87;
+    border-color: transparent;
+}
+
+.ion-nav-bar, .bar{
+    border-color: transparent;
+}
+
+.nav-bar-block, .bar {
+    background-color: #336B87;
+    border-color: transparent;
+}
+
+.p{
+    padding: 3px 5px 3px 5px;
+}
+
+.bar{
+    background-image: none;
+}
+
+/*.[nav-bar-transition="ios"] [nav-bar="active"] .bar, [nav-bar-transition="ios"] [nav-bar="entering"] .bar {*/
+/*border-color: transparent;*/
+/*}*/
+
+.no_ul{
+    text-decoration: none;
+}
+
+.ion-nav-bar{
+    background-color: #336B87;
+    border-color: transparent;
+}
+
+.background{
+    background-image: url('background2.jpeg');
+    background-size: 100%;
+}
