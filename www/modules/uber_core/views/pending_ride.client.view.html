@@ -25,6 +25,7 @@
             </label>
         </div>
         <p>You're ordering {{rideEstimatesList.display_name}}</p>
+        <p>The following users have accepted: {{accepted_friends.ride_users[0].phone}}</p>
 
         <button class="button" ng-click="startRide(rideEstimatesList.product_id)">Start!</button>
 
