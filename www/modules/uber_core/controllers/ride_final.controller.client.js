@@ -14,17 +14,27 @@ angular.module('uber_core').controller('RideFinalController', [
         $scope.joineded_friends = Ride.getCurrentRide();
 
         $scope.watchPosition = function () {
+            console.log('RESTARTED!!!!');
             var currentRide = Ride.getCurrentRide();
 
             var nextFriend = currentRide.ride_users.filter(function (friend) {
                 return friend.status == 'next';
-            })[0];
+            });
+
+            var nextLocation = null;
+            var finalRoute = false;
+            if (nextFriend.length != 0) {
+                nextLocation = nextFriend[0].location;
+            } else {
+                finalRoute = true;
+                nextLocation = currentRide.destination;
+            }
 
             //about 500 ft
-            var latPadding = nextFriend.location.lat/36400 * 3;
+            var latPadding = Math.abs(nextLocation.lat/36400 * 3);
 
             //about 500 ft
-            var lngPadding = nextFriend.location.lng/28820;
+            var lngPadding = Math.abs(nextLocation.lng/28820);
 
             var watchOptions = {
                 timeout : 8000,
@@ -40,11 +50,19 @@ angular.module('uber_core').controller('RideFinalController', [
                 function(position) {
                     var lat  = position.coords.latitude;
                     var long = position.coords.longitude;
-                    if (nextFriend.location.lat + latPadding > lat && nextFriend.location.lat - latPadding < lat &&
-                        nextFriend.location.lng + lngPadding > long && nextFriend.location.lng - lngPadding < long) {
+                    console.log(nextLocation.lat + latPadding + ' > ' + lat + '&&' + (nextLocation.lat - latPadding) + '<' + lat + '&&' +
+                    nextLocation.lng + lngPadding + '>' + long + '&&' + (nextLocation.lng - lngPadding) + '<' +long);
+                    if (nextLocation.lat + latPadding > lat && nextLocation.lat - latPadding < lat &&
+                        nextLocation.lng + lngPadding > long && nextLocation.lng - lngPadding < long) {
                         RideRoutes.updateRide(currentRide).then(function (res) {
                             // Need to show the progress here
-                            console.log(res.data.message);
+                            Ride.setCurrentRide(res.data.message.ride);
+                            watch.clearWatch();
+                            console.log('Cleared Watch');
+                            console.log(finalRoute);
+                            if (!finalRoute) {
+                                $scope.watchPosition();
+                            }
                         })
                     }
                     console.log(lat);
