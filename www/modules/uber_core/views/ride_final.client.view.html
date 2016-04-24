@@ -1,21 +1,29 @@
 <ion-view view-title="Ride Final" class="background">
     <ion-content class="padding">
-        <h2 style="color: white;">Status:</h2>
-        <ion-list show-delete="shouldShowDelete">
-            <ion-item-sliding>
-                <ion-item ng-repeat="f in data.displayStatus.pickedUp">
-                    <h2>{{ f.phone || f.user_id }}</h2>
-                    <p>{{f.status}}</p>
-                </ion-item>
-            </ion-item-sliding>
-        </ion-list>
-        <h2 style="color: white;">Next location</h2>
-        <ion-list show-delete="shouldShowDelete">
-            <ion-item-sliding>
-                <ion-item>
-                    {{data.displayStatus.nextLocation}}
-                </ion-item>
-            </ion-item-sliding>
-        </ion-list>
+        <div class="bar bar-header bar-light">
+            <h1 class="title" style="background-color: white;">Status</h1>
+        </div>
+        <div class="content has-header">
+            <ion-list show-delete="shouldShowDelete">
+                <ion-item-sliding>
+                    <ion-item ng-repeat="f in data.displayStatus.pickedUp">
+                        <h2>{{ f.phone || f.user_id }}</h2>
+                        <p>{{f.status}}</p>
+                    </ion-item>
+                </ion-item-sliding>
+            </ion-list>
+        </div>
+        <div class="bar bar-subheader bar-light">
+            <h1 class="title" style="background-color: white;">Next Location</h1>
+        </div>
+        <div class="content has-header">
+            <ion-list show-delete="shouldShowDelete">
+                <ion-item-sliding>
+                    <ion-item>
+                        {{data.displayStatus.nextLocation}}
+                    </ion-item>
+                </ion-item-sliding>
+            </ion-list>
+        </div>
     </ion-content>
 </ion-view>
