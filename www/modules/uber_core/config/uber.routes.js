@@ -99,14 +99,16 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
                   controller: 'TestUberController'
               }
           }
-      })
+      }).state('tabs.aboutus',{
+            url:'/aboutus',
+            views: {
+                'profile-tab': {
+                    templateUrl: dirRoot + 'aboutus.html',
+                    controller: 'ProfileController'
+                }
+            }
+        })
   }
-    //state('aboutus',{
-    //      url:'/aboutus',
-    //          templateUrl: dirRoot + 'aboutus.html',
-    //          controller: 'ProfileController'
-    //  })
-  //})}
 ]);
 
 

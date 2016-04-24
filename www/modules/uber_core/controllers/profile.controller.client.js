@@ -33,7 +33,7 @@ angular.module('uber_core').controller('ProfileController',[
 
       //TODO: finish about us and yourprofile tabs!!
       $scope.aboutus = function(){
-        $state.go('aboutus');
+        $state.go('tabs.aboutus');
       };
 
       $scope.userinfo = function(){
