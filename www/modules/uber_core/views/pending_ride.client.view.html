@@ -24,10 +24,10 @@
                 </select>
             </label>
         </div>
-        <p>You're ordering {{rideEstimatesList.display_name}}</p>
-        <p>The following users have accepted: {{accepted_friends.ride_users[0].phone}}</p>
+        <p style="color: white;">You're ordering {{rideEstimatesList.display_name}}</p>
+        <p style="color: white;">The following users have accepted: {{accepted_friends}}</p>
 
-        <button class="button" ng-click="startRide(rideEstimatesList.product_id)">Start!</button>
+        <button class="button button-full button-style" ng-click="startRide(rideEstimatesList.product_id)">Start!</button>
 
     </ion-content>
 </ion-view>

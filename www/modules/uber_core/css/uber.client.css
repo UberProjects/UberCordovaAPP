@@ -6,6 +6,11 @@
     background-color: #336B87;
 }
 
+.text-style{
+    color: white;
+    font-weight: bold;
+}
+
 .form-background{
     background-color: white;
     border-color: black;
