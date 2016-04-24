@@ -58,5 +58,9 @@ angular.module('uber_core').service('Ride',[
            currentRide = ride;
         };
 
+        this.getCurrentRide = function() {
+            return currentRide;
+        };
+
     }
 ]);

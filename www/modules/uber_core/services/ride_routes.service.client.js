@@ -24,6 +24,19 @@ angular.module('uber_core').factory('RideRoutes', ['$http', 'SERVER', 'Authentic
                user: Authentication.user
             })
         },
+        startRide: function(data, product_id) {
+            return $http.post(SERVER + '/ride/startRide', {
+                data: data,
+                product_id: product_id,
+                user: Authentication.user
+            });
+        },
+        updateRide: function(data) {
+            return $http.post(SERVER + '/ride/updateUberDestination', {
+                data: data,
+                user: Authentication.user
+            });
+        },
         getEstimatedPrice: function (start_pos, end_pos) {
             return $http.post(SERVER + '/ride/getUberEstimatedPrice', {start_pos: start_pos, end_pos: end_pos, user: Authentication.user});
         },

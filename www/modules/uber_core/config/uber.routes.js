@@ -51,6 +51,14 @@ angular.module('uber_core').config(['$stateProvider', '$urlRouterProvider',
                   controller: 'PendingRideController'
               }
           }
+      }).state('tabs.ride_final', {
+          url: '/ride_final',
+          views: {
+              'ride-tab': {
+                  templateUrl: dirRoot + 'ride_final.client.view.html',
+                  controller: 'RideFinalController'
+              }
+          }
       }).state('tabs.saved_ride', {
           url: '/saved_ride',
           views: {
