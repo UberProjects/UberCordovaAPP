@@ -45,13 +45,6 @@ angular.module('uber_core').controller('PendingRideController', [
             });
         };
 
-        $scope.watchForFriends = function() {
-            $scope.watch(function() {
-                return Ride.getCurrentRide();
-            }, function (val) {
-                console.log(val);
-            })
-        };
 
         $scope.getEstimates();
 
