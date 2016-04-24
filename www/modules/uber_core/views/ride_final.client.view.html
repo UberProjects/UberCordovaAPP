@@ -1,6 +1,9 @@
 <ion-view view-title="Ride Final" class="background">
     <ion-content class="padding">
-        <h2 style="color: white;">Status:</h2>
+        <div class="bar bar-header">
+            <h2 style="color: white;">Status:</h2>
+        </div>
+
         <ion-list show-delete="shouldShowDelete">
             <ion-item-sliding>
                 <ion-item ng-repeat="f in data.displayStatus.pickedUp">
@@ -9,7 +12,11 @@
                 </ion-item>
             </ion-item-sliding>
         </ion-list>
-        <h2 style="color: white;">Next location</h2>
+
+        <div class="bar bar-header">
+            <h2 style="color: white;">Next location</h2>
+        </div>
+
         <ion-list show-delete="shouldShowDelete">
             <ion-item-sliding>
                 <ion-item>
@@ -17,5 +24,6 @@
                 </ion-item>
             </ion-item-sliding>
         </ion-list>
+
     </ion-content>
 </ion-view>
