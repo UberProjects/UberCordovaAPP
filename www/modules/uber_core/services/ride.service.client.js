@@ -17,7 +17,7 @@ angular.module('uber_core').service('Ride',[
 
         this.setRideFriends = function(friends){
            rideFriends = _.map(friends, function(f){
-              f.status = 'Waiting for Conformation';
+              f.status = 'Waiting for Confirmation';
               return f;
            });
            console.log(rideFriends);
