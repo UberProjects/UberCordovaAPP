@@ -45,24 +45,15 @@ angular.module('uber_core').controller('PendingRideController', [
             });
         };
 
+        $scope.watchForFriends = function() {
+            $scope.watch(function() {
+                return Ride.getCurrentRide();
+            }, function (val) {
+                console.log(val);
+            })
+        };
+
         $scope.getEstimates();
 
-        //var watchOptions = {
-        //    timeout : 3000,
-        //    enableHighAccuracy: false // may cause errors if true
-        //};
-        //
-        //var watch = $cordovaGeolocation.watchPosition(watchOptions);
-        //watch.then(
-        //    null,
-        //    function(err) {
-        //        // error
-        //    },
-        //    function(position) {
-        //        var lat  = position.coords.latitude;
-        //        var long = position.coords.longitude;
-        //        console.log(lat);
-        //        console.log(long);
-        //    });
     }
 ]);
