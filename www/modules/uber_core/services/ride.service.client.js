@@ -49,10 +49,18 @@ angular.module('uber_core').service('Ride',[
 
         };
 
+        var cb = [];
+
         Notifications.rideStatus(function(rideUpdate){
-            console.log('Ride Updated!!!!!!!!', rideUpdate);
             currentRide = rideUpdate;
+            cb.forEach(function(c){
+               c(rideUpdate);
+            });
         });
+
+        this.addListener = function(newCb){
+          cb.push(newCb);
+        };
 
         this.setCurrentRide = function(ride){
            currentRide = ride;

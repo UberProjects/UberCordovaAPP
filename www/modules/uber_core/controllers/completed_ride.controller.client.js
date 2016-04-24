@@ -6,6 +6,7 @@
 angular.module('uber_core').controller('CompletedRideController', [
   '$scope',
   'Authentication',
+  'Ride',
   function($scope, Authentication){
 
       $scope.launchPaypal = function() {
@@ -17,6 +18,11 @@ angular.module('uber_core').controller('CompletedRideController', [
           console.log('Launching Venmo In-App Browser');
           window.cordova.InAppBrowser.open('https://m.venmo.com/account/sign-in/', '_blank', 'location=no');
       };
+
+      $scope.calculatePrices = function(price) {
+          var friends = Ride.getCurrentRide();
+          var numFriends = friends.ride_users;
+      }
 
   }
 ]);

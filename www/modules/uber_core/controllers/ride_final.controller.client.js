@@ -4,10 +4,11 @@
 
 angular.module('uber_core').controller('RideFinalController', [
     '$scope',
+    '$state',
     '$cordovaGeolocation',
     'Ride',
     'RideRoutes',
-    function ($scope, $cordovaGeolocation, Ride, RideRoutes) {
+    function ($scope, $state, $cordovaGeolocation, Ride, RideRoutes) {
 
         $scope.data = {};
 
@@ -76,6 +77,8 @@ angular.module('uber_core').controller('RideFinalController', [
                             console.log(finalRoute);
                             if (!finalRoute) {
                                 $scope.watchPosition();
+                            } else {
+                                $state.go('tabs.completed_ride');
                             }
                         })
                     }
