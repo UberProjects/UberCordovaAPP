@@ -17,17 +17,31 @@ angular.module('uber_core').controller('RideFinalController', [
             console.log('RESTARTED!!!!');
             var currentRide = Ride.getCurrentRide();
 
+            var friendStatus = currentRide.ride_users;
+
             var nextFriend = currentRide.ride_users.filter(function (friend) {
                 return friend.status == 'next';
             });
+
+            var pickedUp = friendStatus.filter(function (friend) {
+                return friend.status == 'picked_up';
+            });
+
+            $scope.data.displayStatus = {pickedUp: []};
+            pickedUp.forEach(function (friend) {
+                $scope.data.displayStatus.pickedUp.push(friend)
+            });
+            console.log($scope.data.displayStatus.pickedUp);
 
             var nextLocation = null;
             var finalRoute = false;
             if (nextFriend.length != 0) {
                 nextLocation = nextFriend[0].location;
+                $scope.data.displayStatus.nextLocation = nextFriend[0].phone;
             } else {
                 finalRoute = true;
                 nextLocation = currentRide.destination;
+                $scope.data.displayStatus.nextLocation = 'Final Destination';
             }
 
             //about 500 ft
