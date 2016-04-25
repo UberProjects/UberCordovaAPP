@@ -14,6 +14,7 @@ angular.module('uber_core').service('Ride',[
         var destination = {};
         this.initialRequestorPos = {};
         var currentRide = {};
+        var listenersCB = [];
 
         this.setRideFriends = function(friends){
            rideFriends = _.map(friends, function(f){
@@ -49,13 +50,25 @@ angular.module('uber_core').service('Ride',[
 
         };
 
+        function updateRide(newRide){
+           listenersCB.forEach(function(cb){
+               cb(newRide);
+           })
+        }
+
         Notifications.rideStatus(function(rideUpdate){
-            console.log('Ride Updated!!!!!!!!', rideUpdate);
             currentRide = rideUpdate;
+            updateRide(rideUpdate);
         });
+
+        this.addListener = function(cb){
+           listenersCB.push(cb);
+           cb(currentRide);
+        };
 
         this.setCurrentRide = function(ride){
            currentRide = ride;
+           updateRide(ride);
         };
 
         this.getCurrentRide = function() {

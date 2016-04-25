@@ -10,8 +10,10 @@ angular.module('uber_core').controller('RideHomeController', [
     '$cordovaGeolocation',
     'uiGmapGoogleMapApi',
     'Ride',
-    function ($scope, $state, RideRoutes, $cordovaGeolocation, uiGmapGoogleMapApi, Ride) {
+    'uiGmapLogger',
+    function ($scope, $state, RideRoutes, $cordovaGeolocation, uiGmapGoogleMapApi, Ride, uiGmapLogger) {
         //Needs to store current ride state and render proper view
+
         $scope.startNewRide = function () {
             $state.go('tabs.new_ride')
         };
@@ -39,6 +41,7 @@ angular.module('uber_core').controller('RideHomeController', [
         };
 
         uiGmapGoogleMapApi.then(function(maps){
+            uiGmapLogger.currentLevel = uiGmapLogger.LEVELS.debug;
             console.log('Maps ready');
             navigator.geolocation.getCurrentPosition(function (position) {
                 console.log('Position: ', position);
