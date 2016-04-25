@@ -18,15 +18,23 @@
         <div class="list">
             <label class="item item-input item-select">
                 <div class="input-label">
-                    Ride with Uber
+                    Select Product
                 </div>
                 <select id="rideEstimates" ng-model="rideEstimatesList" ng-options="product as product.display_name + ': ' + product.estimate for product in data.rideEstimates">
                 </select>
             </label>
         </div>
         <p style="color: white;">You're ordering {{rideEstimatesList.display_name}}</p>
-        <p style="color: white;">The following users have accepted: {{accepted_friends}}</p>
 
+        <ion-list show-delete="shouldShowDelete">
+            <ion-item-sliding>
+                <ion-item ng-repeat="f in joined_friends.ride_users">
+                    <h2>{{ f.phone || f.user_id }}</h2>
+                    <p>{{f.accepted}}</p>
+                    <ion-option-button class="button-assertive" ng-click="removeFromRide(f)">Delete</ion-option-button>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-list>
         <button class="button button-full button-style" ng-click="startRide(rideEstimatesList.product_id)">Start!</button>
 
     </ion-content>

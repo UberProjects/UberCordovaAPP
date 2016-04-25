@@ -56,6 +56,7 @@ angular.module('uber_core').controller('RideFinalController', [
                 enableHighAccuracy: false // may cause errors if true
             };
 
+
             var watch = $cordovaGeolocation.watchPosition(watchOptions);
             watch.then(
                 null,

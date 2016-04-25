@@ -46,6 +46,9 @@ angular.module('uber_core').controller('PendingRideController', [
         };
 
 
+        Ride.addListener(function (data) {
+            $scope.joined_friends = data;
+        });
         $scope.getEstimates();
 
     }

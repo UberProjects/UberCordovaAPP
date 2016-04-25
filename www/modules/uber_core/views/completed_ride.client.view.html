@@ -5,7 +5,8 @@
             <span class="input-label">Uber Price</span>
             <input type="number" ng-model="price">
         </label>
-        <button ng-click="calculatePrices()">Calc!</button>
+        <button class="button button-full button-style" ng-click="calculatePrices()">Divide price</button>
+        <p style="color: white;">The ammount owed by each user is: {{dividedPrice}}</p>
         <p>
             Make Payment!
             <button class="button" ng-click="launchPaypal()">Paypal</button>
