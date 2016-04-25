@@ -76,6 +76,15 @@ angular.module('uber_core').directive('rideStateMap', ['Ride', 'uiGmapGoogleMapA
                             title: 'Destination',
                             icon: 'https://maps.google.com/mapfiles/ms/icons/arrow.png'
                         });
+                        markers.push({
+                            id: 'start',
+                            location: {
+                                latitude: updatedRide.start_location.lat,
+                                longitude: updatedRide.start_location.lng
+                            },
+                            title: 'start',
+                            icon: 'https://maps.google.com/mapfiles/ms/icons/blue.png'
+                        });
                         $scope.markersConfig.models = markers;
                         //console.log('Marker Controll');
                         //console.log($scope.markersConfig.markerControl);
